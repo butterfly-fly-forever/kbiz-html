@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messages | K-Biz Admin</title>
+  <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Montserrat", "Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-[#F8F9FA] font-sans flex flex-col text-[#0C0C0C]">
+
+  <!-- Admin Header -->
+  <header class="sticky top-0 z-[100] h-20 w-full bg-white border-b border-gray-100 flex items-center justify-between px-6 md:px-10 shadow-xs">
+    <!-- Left Side: Logo & Admin label -->
+    <div class="flex items-center">
+      <a href="dashboard.html" class="flex items-center shrink-0">
+        <img
+          src="../../public/images/logo.png"
+          alt="K-Biz Consulting"
+          class="h-10 w-auto object-contain"
+        />
+      </a>
+      <div class="w-[1px] h-6 bg-gray-200 mx-4"></div>
+      <span class="text-[11px] font-extrabold uppercase tracking-widest text-[#005E2C]">
+        ADMIN
+      </span>
+    </div>
+
+    <!-- Center: Tabs -->
+    <nav class="flex items-center gap-1 md:gap-2">
+      <a
+        href="dashboard.html"
+        class="px-5 py-2 text-sm font-semibold rounded-lg transition-all text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+      >
+        Dashboard
+      </a>
+      <a
+        href="posts.html"
+        class="px-5 py-2 text-sm font-semibold rounded-lg transition-all text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+      >
+        Posts
+      </a>
+      <a
+        href="messages.html"
+        class="px-5 py-2 text-sm font-semibold rounded-lg transition-all bg-[#E8F0FE] text-[#1A73E8]"
+      >
+        Messages
+      </a>
+      <a
+        href="settings.html"
+        class="px-5 py-2 text-sm font-semibold rounded-lg transition-all text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+      >
+        Settings
+      </a>
+    </nav>
+
+    <!-- Right Side: Actions -->
+    <div class="flex items-center gap-6">
+      <!-- Language Switcher Capsule -->
+      <div class="flex items-center gap-1.5 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-1">
+        <button
+          id="lang-en-btn"
+          class="text-[10px] font-bold px-2 py-0.5 rounded-full transition-all cursor-pointer bg-black text-white"
+        >
+          LN
+        </button>
+        <button
+          id="lang-vi-btn"
+          class="text-[10px] font-bold px-2 py-0.5 rounded-full transition-all cursor-pointer text-gray-400 hover:text-gray-600"
+        >
+          VI
+        </button>
+      </div>
+
+      <!-- Back to Site -->
+      <a
+        href="../index.html"
+        class="text-xs font-bold text-black hover:text-gray-600 transition-colors flex items-center gap-1"
+      >
+        &larr; Back to site
+      </a>
+
+      <!-- admin.signOut -->
+      <a
+        href="../index.html"
+        class="bg-[#3D0055] hover:bg-[#5C2D82] text-white text-xs font-semibold px-5 py-2 rounded-sm transition-all shadow-xs cursor-pointer font-sans tracking-wide"
+      >
+        admin.signOut
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col">
+    <div class="flex-1 w-full px-6 md:px-16 py-10 max-w-7xl mx-auto flex flex-col">
+      
+      <!-- Title -->
+      <h1 class="text-[34px] font-medium tracking-tight text-gray-900 font-sans mb-8">
+        Messages
+      </h1>
+
+      <!-- Main Full-width Container Card -->
+      <div class="bg-white border border-slate-300 rounded-lg overflow-hidden flex flex-col p-8 shadow-2xs min-h-[140px] justify-center">
+        <div id="messages-container" class="space-y-6">
+          <!-- Will be populated dynamically by JS -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      const container = document.getElementById("messages-container");
+      let messages = [];
+
+      // Load messages
+      function loadMessages() {
+        const saved = localStorage.getItem("kbiz_messages");
+        if (saved) {
+          try {
+            messages = JSON.parse(saved);
+          } catch (e) {
+            console.error("Failed to parse LocalStorage messages:", e);
+          }
+        } else {
+          // SEED DATA FOR DEMO PURPOSES
+          const defaultMessages = [
+            {
+              id: "m1",
+              firstName: "John",
+              lastName: "Doe",
+              email: "johndoe@example.com",
+              phone: "+82 10-1234-5678",
+              message: "Hello, I am interested in your consulting services for market entry in Vietnam. Could you please send me more information about your packages?",
+              read: false,
+              createdAt: new Date(Date.now() - 3600000 * 4).toISOString()
+            },
+            {
+              id: "m2",
+              firstName: "Minji",
+              lastName: "Kim",
+              email: "minji.kim@kbiz.co.kr",
+              phone: "+82 2-987-6543",
+              message: "Congratulations on the launch of your new website! Everything looks very professional. I would like to schedule a quick call next week to discuss potential partnership opportunities.",
+              read: true,
+              createdAt: new Date(Date.now() - 3600000 * 24 * 2).toISOString()
+            }
+          ];
+          messages = defaultMessages;
+          localStorage.setItem("kbiz_messages", JSON.stringify(defaultMessages));
+        }
+      }
+
+      function saveAndRender(newMessages) {
+        messages = newMessages;
+        localStorage.setItem("kbiz_messages", JSON.stringify(newMessages));
+        renderMessages();
+      }
+
+      function renderMessages() {
+        if (messages.length === 0) {
+          container.innerHTML = `
+            <div class="text-sm text-gray-700 font-sans py-2">
+              No messages yet.
+            </div>
+          `;
+          return;
+        }
+
+        // Sort messages by date descending (newest first)
+        const sortedMessages = [...messages].sort(function (a, b) {
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        });
+
+        container.innerHTML = sortedMessages.map(function (msg, idx) {
+          const formattedDate = new Date(msg.createdAt).toLocaleString();
+          const nameClass = msg.read ? 'text-gray-600' : 'text-gray-900 font-bold';
+          const borderClass = idx > 0 ? 'pt-6 border-t border-slate-100' : '';
+          const newBadge = !msg.read
+            ? `<span class="bg-green-50 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase border border-green-200">New</span>`
+            : '';
+          const phoneBlock = msg.phone ? `<span class="ml-3">Phone: ${msg.phone}</span>` : '';
+          const mailIcon = msg.read ? 'mail-open' : 'mail';
+          const btnClass = msg.read
+            ? 'border-gray-200 text-gray-400 hover:bg-gray-50 hover:text-gray-600'
+            : 'border-green-200 bg-green-50 text-green-600 hover:bg-green-100';
+          const btnTitle = msg.read ? 'Mark as Unread' : 'Mark as Read';
+          
+          return `
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 transition-all ${borderClass}">
+              <!-- Message Details -->
+              <div class="flex-1 space-y-2 w-full">
+                <div class="flex items-center gap-3 flex-wrap">
+                  <span class="${nameClass} text-sm">
+                    ${msg.firstName} ${msg.lastName}
+                  </span>
+                  <span class="text-xs text-gray-400 font-mono">
+                    ${formattedDate}
+                  </span>
+                  ${newBadge}
+                </div>
+
+                <div class="text-xs text-gray-400">
+                  <span>
+                    Email: <a href="mailto:${msg.email}" class="text-blue-600 hover:underline">${msg.email}</a>
+                  </span>
+                  ${phoneBlock}
+                </div>
+
+                <p class="text-sm text-gray-700 leading-relaxed bg-gray-50/50 p-4 border border-gray-100 rounded-sm whitespace-pre-wrap">
+                  ${msg.message || '(Empty message body)'}
+                </p>
+              </div>
+
+              <!-- Message Quick Actions -->
+              <div class="flex items-center gap-2 self-end md:self-center shrink-0">
+                <button
+                  data-id="${msg.id}"
+                  class="toggle-read-btn p-2 rounded-sm border cursor-pointer transition-colors ${btnClass}"
+                  title="${btnTitle}"
+                >
+                  <i data-lucide="${mailIcon}" class="w-3.5 h-3.5"></i>
+                </button>
+                <button
+                  data-id="${msg.id}"
+                  class="delete-msg-btn p-2 rounded-sm border border-red-100 hover:bg-red-50 text-red-500 transition-colors cursor-pointer"
+                  title="Delete Message"
+                >
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          `;
+        }).join("");
+
+        // Initialize Lucide Icons
+        if (window.lucide) {
+          lucide.createIcons();
+        }
+
+        // Attach event listeners for read status toggle
+        document.querySelectorAll(".toggle-read-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const id = btn.getAttribute("data-id");
+            const updated = messages.map(function (msg) {
+              if (msg.id === id) {
+                return { ...msg, read: !msg.read };
+              }
+              return msg;
+            });
+            saveAndRender(updated);
+          });
+        });
+
+        // Attach event listeners for delete
+        document.querySelectorAll(".delete-msg-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            const id = btn.getAttribute("data-id");
+            if (window.confirm("Delete this message permanently?")) {
+              const filtered = messages.filter(function (msg) {
+                return msg.id !== id;
+              });
+              saveAndRender(filtered);
+            }
+          });
+        });
+      }
+
+      loadMessages();
+      renderMessages();
+
+      // Language Switcher Mock
+      const langEnBtn = document.getElementById("lang-en-btn");
+      const langViBtn = document.getElementById("lang-vi-btn");
+      langEnBtn.addEventListener("click", function() {
+        langEnBtn.className = "text-[10px] font-bold px-2 py-0.5 rounded-full transition-all cursor-pointer bg-black text-white";
+        langViBtn.className = "text-[10px] font-bold px-2 py-0.5 rounded-full transition-all cursor-pointer text-gray-400 hover:text-gray-600";
+      });
+      langViBtn.addEventListener("click", function() {
+        langViBtn.className = "text-[10px] font-bold px-2 py-0.5 rounded-full transition-all cursor-pointer bg-black text-white";
+        langEnBtn.className = "text-[10px] font-bold px-2 py-0.5 rounded-full transition-all cursor-pointer text-gray-400 hover:text-gray-600";
+      });
+
+    });
+  </script>
+</body>
+</html>

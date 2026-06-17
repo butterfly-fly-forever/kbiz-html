@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | K-Biz Consulting</title>
+  <link rel="icon" type="image/svg+xml" href="../public/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Montserrat", "Inter", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-white antialiased text-[#0C0C0C]">
+
+  <div class="flex w-full flex-col bg-white font-sans">
+    
+    <!-- Header -->
+    <header id="site-header" class="sticky top-0 z-[100] w-full border-b border-gray-200/50 bg-[#DBFDEB] transition-all duration-200">
+      <div class="flex h-[120px] w-full items-center justify-between px-6 md:px-10">
+        <a href="index.html" class="flex shrink-0 items-center">
+          <img
+            src="../public/images/logo.png"
+            alt="K-Biz Consulting"
+            class="h-16 w-auto object-contain md:h-24"
+          />
+        </a>
+
+        <div class="flex h-full shrink-0 items-center gap-10">
+          <nav class="hidden h-full items-center gap-10 md:flex" aria-label="Primary">
+            <div class="group relative flex h-full items-center">
+              <a
+                href="services.html"
+                class="flex h-full items-center text-sm font-bold tracking-wide text-[#005E2C] transition-colors duration-200 hover:text-[#B800FF]"
+              >
+                Services
+              </a>
+
+              <div class="pointer-events-none absolute right-0 top-full z-[200] flex min-w-[280px] flex-col gap-5 bg-[#E7AAFF] p-8 opacity-0 shadow-lg transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                <a href="services-consulting-1.html" class="text-right text-sm font-bold transition-all text-white hover:text-[#005E2C] hover:underline">
+                  Investment Consulting
+                </a>
+                <a href="services-consulting-2.html" class="text-right text-sm font-bold transition-all text-white hover:text-[#005E2C] hover:underline">
+                  Start New Business
+                </a>
+                <a href="services-consulting-3.html" class="text-right text-sm font-bold transition-all text-white hover:text-[#005E2C] hover:underline">
+                  Business Developing Services
+                </a>
+              </div>
+            </div>
+
+            <a
+              href="projects.html"
+              class="flex h-full items-center text-sm font-bold tracking-wide text-[#005E2C] transition-colors duration-200 hover:text-[#B800FF]"
+            >
+              Projects
+            </a>
+            <a
+              href="about-us.html"
+              class="flex h-full items-center text-sm font-bold tracking-wide text-[#005E2C] transition-colors duration-200 hover:text-[#B800FF]"
+            >
+              About us
+            </a>
+          </nav>
+
+          <a
+            href="contact.html"
+            class="hidden rounded-none px-9 py-3 text-sm font-bold uppercase tracking-widest text-white transition-colors duration-200 md:inline-block bg-[#3D0055] hover:bg-[#5C2D82]"
+          >
+            Contact
+          </a>
+
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="p-2 text-[#005E2C] md:hidden cursor-pointer"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <svg id="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Nav -->
+      <nav id="mobile-nav" class="hidden border-t border-gray-200/50 bg-[#DBFDEB] px-6 py-4 md:hidden" aria-label="Mobile">
+        <button
+          type="button"
+          id="mobile-services-btn"
+          class="flex w-full items-center justify-between py-3 text-sm font-bold text-[#005E2C]"
+          aria-expanded="false"
+        >
+          <span>Services</span>
+          <svg
+            id="mobile-services-arrow"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="transition-transform"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <div id="mobile-services-dropdown" class="hidden mb-2 ml-3 flex flex-col gap-2 border-l-2 border-[#E7AAFF] pl-4">
+          <a href="services-consulting-1.html" class="py-1 text-sm font-bold text-[#005E2C]">
+            Investment Consulting
+          </a>
+          <a href="services-consulting-2.html" class="py-1 text-sm font-bold text-[#005E2C]">
+            Start New Business
+          </a>
+          <a href="services-consulting-3.html" class="py-1 text-sm font-bold text-[#005E2C]">
+            Business Developing Services
+          </a>
+        </div>
+
+        <a href="projects.html" class="block py-3 text-sm font-bold text-[#005E2C]">
+          Projects
+        </a>
+        <a href="about-us.html" class="block py-3 text-sm font-bold text-[#005E2C]">
+          About us
+        </a>
+
+        <a
+          href="contact.html"
+          class="mt-2 inline-block bg-[#3D0055] px-6 py-3 text-sm font-bold uppercase tracking-widest text-[#B800FF]"
+        >
+          Contact
+        </a>
+      </nav>
+    </header>
+
+    <!-- Top: title + help info -->
+    <section class="w-full py-16 md:py-20 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+      <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
+        <h1 class="text-5xl font-bold text-[#005E2C] md:text-[72px] md:leading-none">Contact</h1>
+
+        <div class="bg-[#E8FFF3] px-8 py-10 md:px-10 md:py-12">
+          <!-- Custom Eyebrow -->
+          <div class="mb-4 flex items-center gap-2">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#005E2C">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#005E2C]">
+              How can we help?
+            </span>
+          </div>
+          <div id="contact-details-container" class="mt-6 space-y-4 text-base leading-[1.6] text-[#005E2C]">
+            <p id="contact-address">16A Le Quy Don Street, Nha Trang Ward, Khanh Hoa Province.</p>
+            <p id="contact-phone">(0258) 3516 343</p>
+            <div id="contact-emails" class="space-y-1">
+              <p><a href="mailto:kbizconsulting16@gmail.com" class="underline hover:text-[#B800FF] transition-colors">kbizconsulting16@gmail.com</a></p>
+              <p><a href="mailto:info@kbiz.com.vn" class="underline hover:text-[#B800FF] transition-colors">info@kbiz.com.vn</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+      <hr class="border-[#005E2C]/15" />
+    </div>
+
+    <!-- Form section -->
+    <section class="w-full py-16 md:py-24 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-stretch">
+        
+        <!-- Left Column: Video -->
+        <div class="relative w-full h-[360px] lg:h-full overflow-hidden rounded-sm bg-black shadow-lg">
+          <video
+            src="../public/videos/contact.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="h-full w-full absolute inset-0 object-cover opacity-90"
+          ></video>
+          <!-- Play Button Overlay in center -->
+          <div class="pointer-events-none absolute inset-0 flex items-center justify-center z-10">
+            <div class="flex h-14 w-14 items-center justify-center rounded-full bg-black/80 shadow-md">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" class="ml-0.5">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Title + Line + Form -->
+        <div class="flex flex-col w-full">
+          <!-- Eyebrow -->
+          <div class="mb-4 flex items-center gap-2">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#005E2C">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#005E2C]">
+              Contact us
+            </span>
+          </div>
+          <h2 class="mb-6 text-4xl font-bold text-[#005E2C] md:text-[56px] md:leading-[1.1] leading-tight">
+            Tell us about your next project
+          </h2>
+
+          <!-- Green dividing line -->
+          <hr class="border-[#B7FCD7] mb-8" />
+
+          <!-- Form container with mint background -->
+          <form
+            id="contact-form"
+            class="space-y-6 bg-[#E8FFF3] p-8 md:p-10 shadow-sm border border-[#B7FCD7]/30"
+          >
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <label class="flex flex-col gap-2">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#005E2C]">
+                  First name *
+                </span>
+                <input
+                  type="text"
+                  name="firstName"
+                  required
+                  class="border border-transparent bg-[#B7FCD7] px-4 py-3 text-sm text-[#005E2C] placeholder-[#005E2C]/50 outline-none focus:bg-[#B7FCD7]/90 rounded-none transition-all"
+                />
+              </label>
+              <label class="flex flex-col gap-2">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#005E2C]">
+                  Last name *
+                </span>
+                <input
+                  type="text"
+                  name="lastName"
+                  required
+                  class="border border-transparent bg-[#B7FCD7] px-4 py-3 text-sm text-[#005E2C] placeholder-[#005E2C]/50 outline-none focus:bg-[#B7FCD7]/90 rounded-none transition-all"
+                />
+              </label>
+            </div>
+
+            <label class="flex flex-col gap-2">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#005E2C]">Email *</span>
+              <input
+                type="email"
+                name="email"
+                required
+                class="border border-transparent bg-[#B7FCD7] px-4 py-3 text-sm text-[#005E2C] placeholder-[#005E2C]/50 outline-none focus:bg-[#B7FCD7]/90 rounded-none transition-all"
+              />
+            </label>
+
+            <label class="flex flex-col gap-2 relative">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#005E2C]">Phone</span>
+              <div class="flex border border-transparent bg-[#B7FCD7] rounded-none relative">
+                
+                <!-- Trigger Button for Country Selector -->
+                <button
+                  type="button"
+                  id="country-select-btn"
+                  class="flex items-center gap-1.5 border-r border-[#005E2C]/15 px-3 text-sm text-[#005E2C] font-mono select-none outline-none focus:outline-none cursor-pointer"
+                >
+                  <span id="selected-flag" class="text-base select-none">🌐</span>
+                  <span id="selected-code">+84</span>
+                  <svg id="country-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="transition-transform duration-200">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                
+                <input
+                  type="tel"
+                  name="phone"
+                  class="flex-1 bg-transparent px-4 py-3 text-sm text-[#005E2C] outline-none"
+                />
+
+                <!-- Country Dropdown (Opens upwards) -->
+                <div
+                  id="country-dropdown"
+                  class="hidden absolute left-0 bottom-full mb-1 z-50 w-[280px] bg-[#B7FCD7] border border-[#005E2C]/20 shadow-xl flex flex-col transition-all"
+                >
+                  <!-- Search Box -->
+                  <div class="flex items-center gap-2 px-3 py-2 border-b border-[#005E2C]/20 bg-[#B7FCD7]">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[#005E2C]/70">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                    <input
+                      type="text"
+                      id="country-search"
+                      placeholder="Search"
+                      class="w-full bg-transparent text-sm text-[#005E2C] outline-none placeholder-[#005E2C]/50"
+                    />
+                  </div>
+                  
+                  <!-- Scrollable Country List -->
+                  <div
+                    id="country-list"
+                    class="max-h-[220px] overflow-y-auto bg-[#B7FCD7] divide-y divide-[#005E2C]/5"
+                  >
+                    <!-- Populated dynamically via JS -->
+                  </div>
+                </div>
+
+              </div>
+            </label>
+
+            <label class="flex flex-col gap-2">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#005E2C]">Message</span>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="This is a message"
+                class="resize-y border border-transparent bg-[#B7FCD7] px-4 py-3 text-sm text-[#005E2C] placeholder-[#005E2C]/50 outline-none focus:bg-[#B7FCD7]/90 rounded-none transition-all"
+              ></textarea>
+            </label>
+
+            <!-- Success Alert placeholder -->
+            <div id="form-success-alert" class="hidden bg-[#B7FCD7] border border-[#005E2C]/20 text-[#005E2C] text-xs font-semibold p-4 rounded-none transition-all">
+              Your message has been sent successfully to the Admin Dashboard!
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-[#E7AAFF] py-4 text-sm font-bold uppercase tracking-widest text-[#3D0055] transition-colors hover:bg-[#d182ff] cursor-pointer"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative w-full overflow-hidden bg-white py-[6%] px-[5%] flex flex-col justify-between min-h-[500px]">
+      <!-- Background gradients -->
+      <div class="absolute inset-0 z-0 pointer-events-none" style="
+        background: radial-gradient(circle at 10% 20%, rgba(200, 100, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%), radial-gradient(circle at 80% 50%, rgba(200, 255, 200, 0.4) 0%, rgba(255, 255, 255, 0) 50%), radial-gradient(circle at 90% 90%, rgba(220, 150, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%)
+      "></div>
+
+      <!-- Top Content: Logo -->
+      <div class="z-10 w-full mb-[120px]">
+        <img src="../public/images/logo.png" alt="K-Biz Consulting" class="h-[140px] object-contain ml-[2%]" />
+      </div>
+
+      <!-- Bottom Content: Columns -->
+      <div class="z-10 w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end pb-4 pl-[2%]">
+        <!-- Location -->
+        <div class="md:col-span-4">
+          <h3 class="text-[12px] font-bold uppercase text-black mb-5 tracking-widest">
+            Location
+          </h3>
+          <p class="text-[13px] text-[#333]">
+            16A Le Quy Don St, Nha Trang Ward, Khanh Hoa Province
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="md:col-span-4">
+          <h3 class="text-[12px] font-bold uppercase text-black mb-5 tracking-widest">
+            Contact
+          </h3>
+          <div class="flex flex-col text-[13px] text-[#333] space-y-1.5">
+            <a href="mailto:kbizconsulting16@gmail.com" class="hover:underline">
+              kbizconsulting16@gmail.com
+            </a>
+            <a href="mailto:info@kbiz.com.vn" class="hover:underline">
+              info@kbiz.com.vn
+            </a>
+            <p>
+              (0258) 3516 343
+            </p>
+          </div>
+        </div>
+
+        <!-- Copyright & Admin Link -->
+        <div class="md:col-span-4 flex flex-col items-start md:items-end pr-[5%] gap-2">
+          <p class="text-[11px] text-[#333] tracking-widest uppercase">
+            © K-BIZ CONSULTING
+          </p>
+          <a
+            href="admins/dashboard.html"
+            class="text-[10px] font-bold text-gray-400 hover:text-green-600 transition-colors uppercase tracking-widest"
+          >
+            Admin Portal
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Vanilla JS Engine -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      // ==========================================
+      // 1. HEADER SCROLL DETECTION & MOBILE NAV
+      // ==========================================
+      const header = document.getElementById("site-header");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 6) {
+          header.classList.add("shadow-sm");
+        } else {
+          header.classList.remove("shadow-sm");
+        }
+      }, { passive: true });
+
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileNav = document.getElementById("mobile-nav");
+      const menuIconOpen = document.getElementById("menu-icon-open");
+      const menuIconClose = document.getElementById("menu-icon-close");
+      let mobileOpen = false;
+
+      mobileMenuBtn.addEventListener("click", function () {
+        mobileOpen = !mobileOpen;
+        mobileMenuBtn.setAttribute("aria-expanded", mobileOpen);
+        if (mobileOpen) {
+          mobileNav.classList.remove("hidden");
+          menuIconOpen.classList.add("hidden");
+          menuIconClose.classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        } else {
+          mobileNav.classList.add("hidden");
+          menuIconOpen.classList.remove("hidden");
+          menuIconClose.classList.add("hidden");
+          document.body.style.overflow = "";
+        }
+      });
+
+      const mobileServicesBtn = document.getElementById("mobile-services-btn");
+      const mobileServicesDropdown = document.getElementById("mobile-services-dropdown");
+      const mobileServicesArrow = document.getElementById("mobile-services-arrow");
+      let mobileServicesOpen = false;
+
+      mobileServicesBtn.addEventListener("click", function () {
+        mobileServicesOpen = !mobileServicesOpen;
+        mobileServicesBtn.setAttribute("aria-expanded", mobileServicesOpen);
+        if (mobileServicesOpen) {
+          mobileServicesDropdown.classList.remove("hidden");
+          mobileServicesArrow.classList.add("rotate-180");
+        } else {
+          mobileServicesDropdown.classList.add("hidden");
+          mobileServicesArrow.classList.remove("rotate-180");
+        }
+      });
+
+
+      // ==========================================
+      // 2. DYNAMIC SETTINGS LOAD
+      // ==========================================
+      const contactPhoneEl = document.getElementById("contact-phone");
+      const contactEmailsEl = document.getElementById("contact-emails");
+
+      // Set default details
+      let details = {
+        address: '16A Le Quy Don Street, Nha Trang Ward, Khanh Hoa Province.',
+        phone: '(0258) 3516 343',
+        emails: ['kbizconsulting16@gmail.com', 'info@kbiz.com.vn'],
+      };
+
+      const savedSettings = localStorage.getItem("kbiz_settings");
+      if (savedSettings) {
+        try {
+          const parsed = JSON.parse(savedSettings);
+          if (parsed.phone) {
+            details.phone = parsed.phone;
+          }
+          if (parsed.email) {
+            details.emails = [parsed.email, 'info@kbiz.com.vn'];
+          }
+        } catch (e) {
+          console.error("Failed to parse LocalStorage settings:", e);
+        }
+      }
+
+      // Render details
+      contactPhoneEl.textContent = details.phone;
+      contactEmailsEl.innerHTML = details.emails.map(function (email) {
+        return '<p><a href="mailto:' + email + '" class="underline hover:text-[#B800FF] transition-colors">' + email + '</a></p>';
+      }).join('');
+      // ==========================================
+      // 3. CUSTOM COUNTRY SELECTOR
+      // ==========================================
+      const countrySelectBtn = document.getElementById("country-select-btn");
+      const countryChevron = document.getElementById("country-chevron");
+      const countryDropdown = document.getElementById("country-dropdown");
+      const countrySearch = document.getElementById("country-search");
+      const countryList = document.getElementById("country-list");
+      const selectedFlag = document.getElementById("selected-flag");
+      const selectedCode = document.getElementById("selected-code");
+
+      const countries = [
+        { name: "Vietnam", code: "+84", flag: "🇻🇳" },
+        { name: "Afghanistan", code: "+93", flag: "🇦🇫" },
+        { name: "Aland Islands", code: "+358", flag: "🇦🇽" },
+        { name: "Albania", code: "+355", flag: "🇦🇱" },
+        { name: "Algeria", code: "+213", flag: "🇩🇿" },
+        { name: "American Samoa", code: "+1684", flag: "🇦🇸" },
+        { name: "Andorra", code: "+376", flag: "🇦🇩" },
+        { name: "Angola", code: "+244", flag: "🇦🇴" },
+        { name: "Argentina", code: "+54", flag: "🇦🇷" },
+        { name: "Australia", code: "+61", flag: "🇦🇺" },
+        { name: "Austria", code: "+43", flag: "🇦🇹" },
+        { name: "Bangladesh", code: "+880", flag: "🇧🇩" },
+        { name: "Belgium", code: "+32", flag: "🇧🇪" },
+        { name: "Brazil", code: "+55", flag: "🇧🇷" },
+        { name: "Canada", code: "+1", flag: "🇨🇦" },
+        { name: "China", code: "+86", flag: "🇨🇳" },
+        { name: "France", code: "+33", flag: "🇫🇷" },
+        { name: "Germany", code: "+49", flag: "🇩🇪" },
+        { name: "India", code: "+91", flag: "🇮🇳" },
+        { name: "Indonesia", code: "+62", flag: "🇮🇩" },
+        { name: "Japan", code: "+81", flag: "🇯🇵" },
+        { name: "Korea, Republic of", code: "+82", flag: "🇰🇷" },
+        { name: "Malaysia", code: "+60", flag: "🇲🇾" },
+        { name: "Singapore", code: "+65", flag: "🇸🇬" },
+        { name: "Thailand", code: "+66", flag: "🇹🇭" },
+        { name: "United Kingdom", code: "+44", flag: "🇬🇧" },
+        { name: "United States", code: "+1", flag: "🇺🇸" }
+      ];
+
+      function renderCountryList(filterText = "") {
+        countryList.innerHTML = "";
+        const lowerFilter = filterText.toLowerCase();
+
+        const filtered = countries.filter(function (c) {
+          return c.name.toLowerCase().includes(lowerFilter) || c.code.includes(lowerFilter);
+        });
+
+        filtered.forEach(function (c) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "w-full flex items-center gap-2.5 px-3 py-2 text-sm text-left hover:bg-[#005E2C]/10 transition-colors text-[#005E2C] font-sans";
+          btn.innerHTML = '<span class="text-base shrink-0 select-none">' + c.flag + '</span><span class="truncate">' + c.name + ' ' + c.code + '</span>';
+          
+          btn.addEventListener("click", function () {
+            selectedFlag.textContent = c.flag;
+            selectedCode.textContent = c.code;
+            closeDropdown();
+          });
+          countryList.appendChild(btn);
+        });
+      }
+
+      function openDropdown() {
+        countryDropdown.classList.remove("hidden");
+        countryChevron.classList.add("rotate-180");
+        countrySearch.focus();
+        countrySearch.value = "";
+        renderCountryList("");
+      }
+
+      function closeDropdown() {
+        countryDropdown.classList.add("hidden");
+        countryChevron.classList.remove("rotate-180");
+      }
+
+      countrySelectBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (countryDropdown.classList.contains("hidden")) {
+          openDropdown();
+        } else {
+          closeDropdown();
+        }
+      });
+
+      countryDropdown.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+
+      countrySearch.addEventListener("input", function (e) {
+        renderCountryList(e.target.value);
+      });
+
+      document.addEventListener("click", function () {
+        closeDropdown();
+      });
+
+      renderCountryList("");
+
+
+      // ==========================================
+      // 4. FORM SUBMISSION
+      // ==========================================
+      const contactForm = document.getElementById("contact-form");
+      const formSuccessAlert = document.getElementById("form-success-alert");
+      let alertTimeout = null;
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get fields
+        const formData = new FormData(contactForm);
+        const firstName = formData.get("firstName");
+        const lastName = formData.get("lastName");
+        const email = formData.get("email");
+        
+        const rawPhone = formData.get("phone");
+        const countryCode = selectedCode.textContent;
+        const phone = rawPhone ? (countryCode + " " + rawPhone) : "";
+        const message = formData.get("message");
+
+        const newMsg = {
+          id: Date.now().toString(),
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          phone: phone,
+          message: message,
+          read: false,
+          createdAt: new Date().toISOString()
+        };
+
+        // Fetch current list
+        const savedMessages = localStorage.getItem("kbiz_messages");
+        let messages = [];
+        if (savedMessages) {
+          try {
+            messages = JSON.parse(savedMessages);
+          } catch (e) {
+            console.error("Failed to parse LocalStorage messages:", e);
+          }
+        }
+
+        // Store message
+        messages.push(newMsg);
+        localStorage.setItem("kbiz_messages", JSON.stringify(messages));
+
+        // Show Success Alert
+        formSuccessAlert.classList.remove("hidden");
+        
+        // Reset Form
+        contactForm.reset();
+
+        // Alert Timeout
+        if (alertTimeout) clearTimeout(alertTimeout);
+        alertTimeout = setTimeout(function () {
+          formSuccessAlert.classList.add("hidden");
+        }, 5000);
+      });
+
+    });
+  </script>
+</body>
+</html>
