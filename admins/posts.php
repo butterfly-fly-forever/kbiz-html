@@ -21,7 +21,7 @@ include 'admin-header.php';
           </p>
         </div>
         <a
-          href="editor.php"
+          href="editor"
           class="bg-[#005E2C] hover:bg-[#004B23] text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-sm shadow-xs transition-all cursor-pointer font-sans"
         >
           CREATE NEW POST
@@ -108,7 +108,7 @@ include 'admin-header.php';
       function saveAndRender(newPosts) {
         posts = newPosts;
         localStorage.setItem("kbiz_posts", JSON.stringify(newPosts));
-        fetch('../api/save_posts.php', {
+        fetch('../api/save_posts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newPosts)
@@ -169,7 +169,7 @@ include 'admin-header.php';
               </td>
               <td class="p-5 text-right space-x-3">
                 <a
-                  href="editor.php?id=${post.id}"
+                  href="editor?id=${post.id}"
                   class="text-xs font-semibold text-blue-600 hover:underline cursor-pointer inline-block"
                 >
                   Edit
@@ -192,7 +192,7 @@ include 'admin-header.php';
             // If clicking a button or link, don't trigger row navigation
             if (e.target.closest("button") || e.target.closest("a")) return;
             const id = row.getAttribute("data-id");
-            window.location.href = "editor.php?id=" + id;
+            window.location.href = "editor?id=" + id;
           });
         });
 
@@ -243,3 +243,4 @@ include 'admin-header.php';
   </script>
 </body>
 </html>
+

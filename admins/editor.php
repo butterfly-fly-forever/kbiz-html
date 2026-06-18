@@ -213,7 +213,7 @@ include 'admin-header.php';
       <!-- Actions header -->
       <div class="p-5 border-b border-gray-100 flex items-center justify-between bg-gray-50 shrink-0">
         <a
-          href="posts.php"
+          href="posts"
           class="text-xs font-bold text-gray-500 hover:text-gray-800 transition-colors uppercase tracking-wider flex items-center gap-1 cursor-pointer"
         >
           &larr; Cancel
@@ -620,7 +620,7 @@ include 'admin-header.php';
         }
 
         localStorage.setItem("kbiz_posts", JSON.stringify(updatedPosts));
-        fetch('../api/save_posts.php', {
+        fetch('../api/save_posts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updatedPosts)
@@ -628,7 +628,7 @@ include 'admin-header.php';
         .then(res => res.json())
         .then(data => {
           if (data.success) {
-            window.location.href = "posts.php";
+            window.location.href = "posts";
           } else {
             alert("Lỗi lưu bài viết lên máy chủ.");
           }
@@ -655,3 +655,4 @@ include 'admin-header.php';
   </script>
 </body>
 </html>
+

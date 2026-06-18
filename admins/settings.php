@@ -153,7 +153,7 @@ include 'admin-header.php';
           phone: phoneInput.value
         };
         localStorage.setItem("kbiz_settings", JSON.stringify(newSettings));
-        fetch('../api/save_settings.php', {
+        fetch('../api/save_settings', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newSettings)
@@ -242,3 +242,4 @@ include 'admin-header.php';
   </script>
 </body>
 </html>
+

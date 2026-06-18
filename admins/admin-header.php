@@ -39,7 +39,7 @@ if (!isset($adminActivePage)) {
   <header class="sticky top-0 z-[100] h-20 w-full bg-white border-b border-gray-100 flex items-center justify-between px-6 md:px-10 shadow-xs">
     <!-- Left Side: Logo & Admin label -->
     <div class="flex items-center">
-      <a href="dashboard.php" class="flex items-center shrink-0">
+      <a href="dashboard" class="flex items-center shrink-0">
         <img
           src="../public/images/logo.png"
           alt="K-Biz Consulting"
@@ -55,25 +55,25 @@ if (!isset($adminActivePage)) {
     <!-- Center: Tabs -->
     <nav class="flex items-center gap-1 md:gap-2">
       <a
-        href="dashboard.php"
+        href="dashboard"
         class="px-5 py-2 text-sm font-semibold rounded-lg transition-all <?php echo ($adminActivePage === 'dashboard') ? 'bg-[#E8F0FE] text-[#1A73E8]' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'; ?>"
       >
         Dashboard
       </a>
       <a
-        href="posts.php"
+        href="posts"
         class="px-5 py-2 text-sm font-semibold rounded-lg transition-all <?php echo ($adminActivePage === 'posts' || $adminActivePage === 'editor') ? 'bg-[#E8F0FE] text-[#1A73E8]' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'; ?>"
       >
         Posts
       </a>
       <a
-        href="messages.php"
+        href="messages"
         class="px-5 py-2 text-sm font-semibold rounded-lg transition-all <?php echo ($adminActivePage === 'messages') ? 'bg-[#E8F0FE] text-[#1A73E8]' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'; ?>"
       >
         Messages
       </a>
       <a
-        href="settings.php"
+        href="settings"
         class="px-5 py-2 text-sm font-semibold rounded-lg transition-all <?php echo ($adminActivePage === 'settings') ? 'bg-[#E8F0FE] text-[#1A73E8]' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'; ?>"
       >
         Settings
@@ -100,7 +100,7 @@ if (!isset($adminActivePage)) {
 
       <!-- Back to Site -->
       <a
-        href="../index.php"
+        href="../"
         class="text-xs font-bold text-black hover:text-gray-600 transition-colors flex items-center gap-1"
       >
         &larr; Back to site
@@ -108,10 +108,11 @@ if (!isset($adminActivePage)) {
 
       <!-- admin.signOut -->
       <a
-        href="../logout.php"
+        href="../logout"
         class="bg-[#3D0055] hover:bg-[#5C2D82] text-white text-xs font-semibold px-5 py-2 rounded-sm transition-all shadow-xs cursor-pointer font-sans tracking-wide"
       >
         admin.signOut
       </a>
     </div>
   </header>
+

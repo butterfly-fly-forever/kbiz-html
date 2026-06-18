@@ -63,7 +63,7 @@ include 'admin-header.php';
             Recent posts
           </h2>
           <a
-            href="posts.php"
+            href="posts"
             class="text-xs font-bold text-black hover:underline font-sans"
           >
             View all
@@ -157,3 +157,4 @@ include 'admin-header.php';
   </script>
 </body>
 </html>
+
