@@ -1,0 +1,15 @@
+# Turn on URL rewriting
+RewriteEngine On
+
+# Prevent direct browsing of data folder for security
+RewriteRule ^data/.*$ - [F,L]
+
+# If the requested path is an existing file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirect clean URLs to PHP files
+# Example: /about-us -> /about-us.php
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

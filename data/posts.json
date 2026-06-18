@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "title": "Perspective on Traditional Market Model – Part 1: The fish market in Busan",
+    "content": "When tourists visit any destination, they often want to learn about the local culture, history, standard of living, and customs. Traditional markets are an indispensable part of local economy...",
+    "status": "published",
+    "createdAt": "2026-06-15T09:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "title": "Perspective on Traditional Market Model – Part 2: The hub market in Bazar",
+    "content": "A comprehensive look at traditional markets in the modern economy, focusing on Bazar hub market’s vital role in supplying fresh goods and supporting local micro-entrepreneurs...",
+    "status": "published",
+    "createdAt": "2026-06-16T15:30:00.000Z"
+  },
+  {
+    "id": "3",
+    "title": "Traditional Markets vs Modern Supermarkets",
+    "content": "Analyzing consumer behavior transitions in fast-developing coastal urban cities. How traditional markets retain their competitive edge through cultural connection...",
+    "status": "draft",
+    "createdAt": "2026-06-18T07:12:00.000Z"
+  }
+]

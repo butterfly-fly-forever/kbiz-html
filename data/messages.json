@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1718698000000",
+    "firstName": "Hải",
+    "lastName": "Nguyễn",
+    "email": "nguyenhai@example.com",
+    "phone": "+84 912345678",
+    "message": "Tôi muốn tư vấn về dịch vụ thành lập doanh nghiệp mới tại Nha Trang. Vui lòng phản hồi sớm.",
+    "read": false,
+    "createdAt": "2026-06-18T01:00:00.000Z"
+  }
+]

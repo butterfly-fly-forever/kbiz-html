@@ -1,0 +1,494 @@
+<?php
+$activePage = 'projects';
+$pageTitle = 'Projects | K-Biz Consulting';
+include 'templates/header.php';
+?>
+
+
+    <!-- Hero -->
+    <section id="hero-section" class="relative flex h-[min(72vh,720px)] w-full items-end overflow-hidden bg-black">
+      
+      <!-- Video Element (Hidden Initially) -->
+      <video
+        id="hero-video-player"
+        src="public/videos/projects.mp4"
+        playsinline
+        class="absolute inset-0 h-full w-full object-cover hidden z-10"
+      ></video>
+
+      <!-- Background Image -->
+      <img
+        id="hero-bg-img"
+        src="public/images/projects.jpg"
+        alt="We build projects that last"
+        class="absolute inset-0 h-full w-full object-cover z-0"
+      />
+      <div id="hero-overlay" class="absolute inset-0 bg-black/35 z-0"></div>
+      
+      <!-- Play Button Overlay -->
+      <div id="hero-play-overlay" class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+        <button
+          id="play-video-btn"
+          class="flex h-12 w-12 items-center justify-center rounded-full bg-black/80 text-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg cursor-pointer pointer-events-auto z-20"
+          aria-label="Play project video"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ml-0.5 text-white">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Text Overlay -->
+      <div id="hero-text-overlay" class="relative z-10 w-full pb-12 pt-24 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52 pointer-events-none">
+        <!-- Eyebrow -->
+        <div class="mb-3 flex items-center gap-2">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="white" class="opacity-90">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <span class="text-xs font-bold uppercase tracking-[0.25em] text-white opacity-90">
+            Our Projects
+          </span>
+        </div>
+        <h1 class="max-w-[640px] text-4xl font-bold leading-tight text-white md:text-[56px] md:leading-[1.1]">
+          We build projects that last
+        </h1>
+      </div>
+    </section>
+
+    <!-- Project Lightbox Modal -->
+    <div id="project-lightbox" class="hidden fixed inset-0 z-[999] flex h-full w-full flex-col bg-[#DBFDEB]/95 justify-between p-4 md:p-8">
+      <!-- Top Bar -->
+      <div class="flex w-full items-center justify-between z-10">
+        <!-- Top Left: Maximize Icon -->
+        <div class="text-[#005E2C] opacity-75 hover:opacity-100 transition-opacity cursor-pointer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+          </svg>
+        </div>
+        
+        <!-- Top Right: Close Icon -->
+        <button
+          id="close-lightbox-btn"
+          class="text-[#005E2C] hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+          aria-label="Close slider"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Image Area -->
+      <div class="relative flex flex-1 items-center justify-center w-full my-4 min-h-0">
+        <!-- Left Button -->
+        <button
+          id="prev-project-btn"
+          class="absolute left-0 md:left-4 z-20 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/80 text-[#005E2C] shadow-md backdrop-blur-sm opacity-80 hover:opacity-100 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+          aria-label="Previous project"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        <!-- Centered Image Container -->
+        <div class="flex h-full w-full items-center justify-center max-w-4xl mx-auto px-10 md:px-16 min-h-0">
+          <img
+            id="lightbox-img"
+            src=""
+            alt=""
+            class="max-h-[48vh] md:max-h-[60vh] w-auto max-w-full object-contain rounded-sm shadow-xl bg-white border border-gray-100 transition-all duration-300"
+          />
+        </div>
+
+        <!-- Right Button -->
+        <button
+          id="next-project-btn"
+          class="absolute right-0 md:right-4 z-20 flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/80 text-[#005E2C] shadow-md backdrop-blur-sm opacity-80 hover:opacity-100 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+          aria-label="Next project"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Description Block -->
+      <div class="w-full text-center pb-4 md:pb-6 z-10 px-4">
+        <h3 id="lightbox-title" class="text-lg md:text-xl font-bold tracking-wide text-[#005E2C] uppercase mb-1">
+          TITLE
+        </h3>
+        <p id="lightbox-subtitle" class="text-xs md:text-sm text-[#005E2C] opacity-85 max-w-xl mx-auto leading-relaxed">
+          SUBTITLE
+        </p>
+      </div>
+    </div>
+
+    <!-- About + Mission / Vision -->
+    <section class="w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="flex items-center bg-gradient-to-r from-[#E7AAFF] to-white px-12 py-16 md:px-20 md:py-24 lg:px-28 lg:py-28 xl:px-32">
+          <p class="text-lg leading-[1.6] text-[#0C0C0C]">
+            <span class="text-[#B800FF] font-semibold">Over 20 years of experience</span> in the Vietnamese market, K-Biz provides comprehensive
+            legal, financial, and business development support services to help you navigate the complexities of
+            doing business in Vietnam.
+          </p>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex flex-1 flex-col justify-center bg-[#B9FCD8] px-12 py-12 md:px-16 md:py-16 lg:px-20 lg:py-20 xl:px-24">
+            <h2 class="mb-4 text-2xl font-bold text-[#B800FF] md:text-[28px]">Our Mission</h2>
+            <p class="text-base leading-[1.5] text-[#0C0C0C]">
+              Empowering businesses in Khánh Hòa and beyond through innovative solutions, expert guidance, and
+              unwavering support. We understand your unique challenges and tailor our solutions to meet your
+              specific needs.
+            </p>
+          </div>
+          <div class="flex flex-1 flex-col justify-center bg-[#E7AAFF] px-12 py-12 md:px-16 md:py-16 lg:px-20 lg:py-20 xl:px-24">
+            <h2 class="mb-4 text-2xl font-bold text-[#B800FF] md:text-[28px]">Our Vision</h2>
+            <p class="text-base leading-[1.5] text-[#0C0C0C]">
+              To be the indispensable partner for businesses in Khánh Hòa and Nationwide, fostering growth,
+              innovation, and success. We are committed to building long-lasting relationships with our clients,
+              providing unwavering support and expertise every step of the way.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects We Worked -->
+    <section class="w-full bg-white pt-16 pb-12 md:pt-24 md:pb-16 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+      <h2 class="mb-10 text-3xl font-bold text-[#3D0055] md:text-4xl">Projects We Worked</h2>
+      <div class="grid grid-cols-1 gap-0 md:gap-0 md:grid-cols-12 md:grid-rows-2">
+        
+        <!-- Project 0 -->
+        <div
+          class="cursor-pointer group relative overflow-hidden md:col-span-5 md:row-span-2 md:min-h-[520px] project-item"
+          data-index="0"
+        >
+          <img
+            src="public/images/project-vanphong.jpg"
+            alt="Van Phong 1 BOT Thermal Power Plant"
+            class="h-full min-h-[280px] w-full object-cover md:min-h-full transition-all duration-500 filter group-hover:grayscale group-hover:brightness-50 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 z-10 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+            <p class="text-base md:text-lg font-bold uppercase tracking-wider text-[#B7FCD7] leading-snug">
+              VAN PHONG 1 BOT THERMAL POWER PLANT
+            </p>
+          </div>
+        </div>
+
+        <!-- Project 1 -->
+        <div
+          class="cursor-pointer group relative overflow-hidden md:col-span-3 md:row-span-1 md:min-h-[250px] project-item"
+          data-index="1"
+        >
+          <img
+            src="public/images/project-australis.jpg"
+            alt="Australis Aquaculture Vietnam"
+            class="h-full min-h-[200px] w-full object-cover transition-all duration-500 filter group-hover:grayscale group-hover:brightness-50 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 z-10 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+            <p class="text-sm md:text-base font-bold uppercase tracking-wider text-[#B7FCD7] leading-snug">
+              AUSTRALIS AQUACULTURE VIETNAM
+            </p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+          class="cursor-pointer group relative overflow-hidden md:col-span-4 md:row-span-1 md:min-h-[250px] project-item"
+          data-index="3"
+        >
+          <img
+            src="public/images/project-mia.jpg"
+            alt="Mia Resort Nha Trang"
+            class="h-full min-h-[200px] w-full object-cover transition-all duration-500 filter group-hover:grayscale group-hover:brightness-50 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 z-10 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+            <p class="text-sm md:text-base font-bold uppercase tracking-wider text-[#B7FCD7] leading-snug">
+              MIA RESORT NHA TRANG
+            </p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+          class="cursor-pointer group relative overflow-hidden md:col-span-3 md:row-span-1 md:min-h-[250px] project-item"
+          data-index="2"
+        >
+          <img
+            src="public/images/project-hospital.png"
+            alt="Saigon Nha Trang General Hospital"
+            class="h-full min-h-[200px] w-full object-cover transition-all duration-500 filter group-hover:grayscale group-hover:brightness-50 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 z-10 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+            <p class="text-sm md:text-base font-bold uppercase tracking-wider text-[#B7FCD7] leading-snug">
+              SAIGON NHA TRANG GENERAL HOSPITAL
+            </p>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div
+          class="cursor-pointer group relative overflow-hidden md:col-span-4 md:row-span-1 md:min-h-[250px] project-item"
+          data-index="4"
+        >
+          <img
+            src="public/images/project-olympia.jpg"
+            alt="Olympia General Clinic"
+            class="h-full min-h-[200px] w-full object-cover transition-all duration-500 filter group-hover:grayscale group-hover:brightness-50 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 z-10 opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+            <p class="text-sm md:text-base font-bold uppercase tracking-wider text-[#B7FCD7] leading-snug">
+              OLYMPIA GENERAL CLINIC
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="w-full bg-white py-16 md:py-24 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+      <h2 class="mb-10 text-3xl font-bold text-[#3D0055] md:text-4xl">Case Studies &amp; Discussions</h2>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        
+        <!-- Case Study 1 -->
+        <article class="flex flex-col">
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
+            <img src="public/images/blog-busan.jpg" alt="" class="h-full w-full object-cover" />
+          </div>
+          <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Perspective on Traditional Market Model – Part 1: The fish market in Busan</h3>
+          <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
+            Ever wondered what it's like to explore a traditional fish market in South Korea? From fresh seafood to 
+          </p>
+          <a
+            href="project-1"
+            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
+          >
+            Read More
+          </a>
+        </article>
+
+        <!-- Case Study 2 -->
+        <article class="flex flex-col">
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
+            <img src="public/images/project-z596.jpg" alt="" class="h-full w-full object-cover" />
+          </div>
+          <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Perspective on Traditional Market Model – Part 2: The market in Vietnam</h3>
+          <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
+            Curious about how Vietnam's traditional fish markets compare to those in other countries? 
+          </p>
+          <a
+            href="#"
+            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
+          >
+            Read More
+          </a>
+        </article>
+
+        <!-- Case Study 3 -->
+        <article class="flex flex-col">
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
+            <img src="public/images/blog-supermarket.jpg" alt="" class="h-full w-full object-cover" />
+          </div>
+          <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Perspective on Traditional Market Model – Part 3: Shopping at market or supermarket</h3>
+          <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
+          </p>
+          <a
+            href="#"
+            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
+          >
+            Read More
+          </a>
+        </article>
+
+        <!-- Case Study 4 -->
+        <article class="flex flex-col">
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
+            <img src="public/images/blog-thinhvuong.jpg" alt="" class="h-full w-full object-cover" />
+          </div>
+          <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Thinh Vuong 2</h3>
+          <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
+          </p>
+          <a
+            href="#"
+            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
+          >
+            Read More
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative flex h-[350px] w-full items-center overflow-hidden bg-[#B800FF]">
+      <div
+        class="absolute inset-0 z-0"
+        style="
+          background-image: url(&quot;data:image/svg+xml,%3Csvg preserveAspectRatio='none' viewBox='0 0 1920 350' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23a100ff' opacity='0.4' points='0,0 1920,0 960,300' /%3E%3Cpolygon fill='%23b74bff' opacity='0.6' points='0,0 1920,0 960,260' /%3E%3Cpolygon fill='%23d182ff' opacity='0.8' points='0,0 1920,0 960,220' /%3E%3Cpolygon fill='%23E7AAFF' opacity='1.0' points='0,0 1920,0 960,180' /%3E%3C/svg%3E&quot;);
+        "
+      ></div>
+      <div class="relative z-10 flex w-full flex-col items-center justify-center px-6 text-center md:px-10">
+        <h4 class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans">
+          Get an estimate for your upcoming project
+        </h4>
+        <a
+          href="contact"
+          class="rounded-none bg-[#B9FCD8] px-8 py-2.5 text-sm font-medium text-[#3D0055] transition-colors hover:bg-white hover:text-[#3D0055]"
+        >
+          Contact
+        </a>
+      </div>
+    </section>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // ==========================================
+      // 2. HERO VIDEO INLINE PLAY
+      // ==========================================
+      const playVideoBtn = document.getElementById("play-video-btn");
+      const heroVideoPlayer = document.getElementById("hero-video-player");
+      const heroBgImg = document.getElementById("hero-bg-img");
+      const heroOverlay = document.getElementById("hero-overlay");
+      const heroPlayOverlay = document.getElementById("hero-play-overlay");
+      const heroTextOverlay = document.getElementById("hero-text-overlay");
+
+      if (playVideoBtn && heroVideoPlayer) {
+        playVideoBtn.addEventListener("click", function () {
+          // Hide backgrounds and overlays
+          if (heroBgImg) heroBgImg.classList.add("hidden");
+          if (heroOverlay) heroOverlay.classList.add("hidden");
+          if (heroPlayOverlay) heroPlayOverlay.classList.add("hidden");
+          if (heroTextOverlay) heroTextOverlay.classList.add("hidden");
+
+          // Show and play video
+          heroVideoPlayer.classList.remove("hidden");
+          heroVideoPlayer.setAttribute("controls", "true");
+          heroVideoPlayer.play();
+        });
+      }
+
+
+      // ==========================================
+      // 3. PROJECT LIGHTBOX MODAL
+      // ==========================================
+      const workedProjects = [
+        {
+          src: 'public/images/project-vanphong.jpg',
+          alt: 'Van Phong 1 BOT Thermal Power Plant',
+          title: 'VAN PHONG 1 BOT THERMAL POWER PLANT',
+          subtitle: 'Registering for investment in the operation services of Van Phong Thermal Power Plant.'
+        },
+        {
+          src: 'public/images/project-australis.jpg',
+          alt: 'Australis Aquaculture Vietnam',
+          title: 'AUSTRALIS AQUACULTURE VIETNAM',
+          subtitle: 'Support in regulatory and licensing procedures for aquaculture operations.'
+        },
+        {
+          src: 'public/images/project-hospital.png',
+          alt: 'Saigon Nha Trang General Hospital',
+          title: 'SAIGON NHA TRANG GENERAL HOSPITAL',
+          subtitle: 'Advisory on project planning and legal documentation for healthcare infrastructure.'
+        },
+        {
+          src: 'public/images/project-mia.jpg',
+          alt: 'Mia Resort Nha Trang',
+          title: 'MIA RESORT NHA TRANG',
+          subtitle: 'Consulting on expansion planning and environmental impact assessment.'
+        },
+        {
+          src: 'public/images/project-olympia.jpg',
+          alt: 'Olympia General Clinic',
+          title: 'OLYMPIA GENERAL CLINIC',
+          subtitle: 'Licensing, business registration and compliance counseling for medical services.'
+        },
+      ];
+
+      let selectedProjectIndex = null;
+
+      const projectLightbox = document.getElementById("project-lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxSubtitle = document.getElementById("lightbox-subtitle");
+      const closeLightboxBtn = document.getElementById("close-lightbox-btn");
+      const prevProjectBtn = document.getElementById("prev-project-btn");
+      const nextProjectBtn = document.getElementById("next-project-btn");
+
+      function openLightbox(index) {
+        selectedProjectIndex = index;
+        updateLightbox();
+        projectLightbox.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        selectedProjectIndex = null;
+        projectLightbox.classList.add("hidden");
+        if (!mobileOpen) {
+          document.body.style.overflow = "";
+        }
+      }
+
+      function updateLightbox() {
+        if (selectedProjectIndex === null) return;
+        const project = workedProjects[selectedProjectIndex];
+        
+        lightboxImg.src = project.src;
+        lightboxImg.alt = project.alt;
+        lightboxTitle.textContent = project.title;
+        lightboxSubtitle.textContent = project.subtitle;
+
+        // Force transition animation
+        lightboxImg.classList.remove("opacity-0");
+        void lightboxImg.offsetWidth;
+      }
+
+      // Add click listeners to project grid items
+      const projectItems = document.querySelectorAll(".project-item");
+      projectItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+          const index = parseInt(item.getAttribute("data-index"));
+          openLightbox(index);
+        });
+      });
+
+      closeLightboxBtn.addEventListener("click", closeLightbox);
+
+      prevProjectBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        selectedProjectIndex = (selectedProjectIndex === 0) ? workedProjects.length - 1 : selectedProjectIndex - 1;
+        updateLightbox();
+      });
+
+      nextProjectBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        selectedProjectIndex = (selectedProjectIndex === workedProjects.length - 1) ? 0 : selectedProjectIndex + 1;
+        updateLightbox();
+      });
+
+      // Keyboard support for Lightbox
+      document.addEventListener("keydown", function (e) {
+        if (selectedProjectIndex === null) return;
+        if (e.key === "Escape") {
+          closeLightbox();
+        } else if (e.key === "ArrowLeft") {
+          selectedProjectIndex = (selectedProjectIndex === 0) ? workedProjects.length - 1 : selectedProjectIndex - 1;
+          updateLightbox();
+        } else if (e.key === "ArrowRight") {
+          selectedProjectIndex = (selectedProjectIndex === workedProjects.length - 1) ? 0 : selectedProjectIndex + 1;
+          updateLightbox();
+        }
+      });
+    });
+</script>
+<?php include 'templates/footer.php'; ?>
+
