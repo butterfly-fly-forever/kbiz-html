@@ -6,11 +6,11 @@ include 'templates/header.php';
 
 
     <!-- Top: title + help info -->
-    <section class="w-full py-16 md:py-20 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+    <section class="w-full py-16 md:py-20 px-6 md:px-10">
       <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
-        <h1 class="text-5xl font-bold text-[#005E2C] md:text-[72px] md:leading-none">Contact</h1>
+        <h1 data-animate class="text-5xl font-bold text-[#005E2C] md:text-[72px] md:leading-none">Contact</h1>
 
-        <div class="bg-[#E8FFF3] px-8 py-10 md:px-10 md:py-12">
+        <div data-animate data-animate-delay="1" class="bg-[#E8FFF3] px-8 py-10 md:px-10 md:py-12">
           <!-- Custom Eyebrow -->
           <div class="mb-4 flex items-center gap-2">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="#005E2C">
@@ -20,7 +20,7 @@ include 'templates/header.php';
               How can we help?
             </span>
           </div>
-          <div id="contact-details-container" class="mt-6 space-y-4 text-base leading-[1.6] text-[#005E2C]">
+          <div id="contact-details-container" class="mt-6 space-y-4 text-lg leading-[1.6] text-[#005E2C] font-bold">
             <p id="contact-address">16A Le Quy Don Street, Nha Trang Ward, Khanh Hoa Province.</p>
             <p id="contact-phone"><?php echo htmlspecialchars($siteSettings["phone"]); ?></p>
             <div id="contact-emails" class="space-y-1">
@@ -32,16 +32,16 @@ include 'templates/header.php';
       </div>
     </section>
 
-    <div class="px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+    <div class="px-6 md:px-10">
       <hr class="border-[#005E2C]/15" />
     </div>
 
     <!-- Form section -->
-    <section class="w-full py-16 md:py-24 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
+    <section class="w-full py-16 md:py-20 px-6 md:px-10">
       <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-stretch">
-        
+
         <!-- Left Column: Video -->
-        <div class="relative w-full h-[360px] lg:h-full overflow-hidden rounded-sm bg-black shadow-lg">
+        <div data-animate class="relative w-full h-[360px] lg:h-full overflow-hidden rounded-sm bg-black shadow-lg">
           <video
             src="public/videos/contact.mp4"
             autoplay
@@ -50,18 +50,10 @@ include 'templates/header.php';
             playsinline
             class="h-full w-full absolute inset-0 object-cover opacity-90"
           ></video>
-          <!-- Play Button Overlay in center -->
-          <div class="pointer-events-none absolute inset-0 flex items-center justify-center z-10">
-            <div class="flex h-14 w-14 items-center justify-center rounded-full bg-black/80 shadow-md">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" class="ml-0.5">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-          </div>
         </div>
 
         <!-- Right Column: Title + Line + Form -->
-        <div class="flex flex-col w-full">
+        <div data-animate data-animate-delay="1" class="flex flex-col w-full">
           <!-- Eyebrow -->
           <div class="mb-4 flex items-center gap-2">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="#005E2C">
@@ -71,7 +63,7 @@ include 'templates/header.php';
               Contact us
             </span>
           </div>
-          <h2 class="mb-6 text-4xl font-bold text-[#005E2C] md:text-[56px] md:leading-[1.1] leading-tight">
+          <h2 data-animate class="mb-6 text-4xl font-bold text-[#005E2C] md:text-[56px] md:leading-[1.1] leading-tight">
             Tell us about your next project
           </h2>
 
@@ -121,7 +113,7 @@ include 'templates/header.php';
             <label class="flex flex-col gap-2 relative">
               <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#005E2C]">Phone</span>
               <div class="flex border border-transparent bg-[#B7FCD7] rounded-none relative">
-                
+
                 <!-- Trigger Button for Country Selector -->
                 <button
                   type="button"
@@ -134,7 +126,7 @@ include 'templates/header.php';
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </button>
-                
+
                 <input
                   type="tel"
                   name="phone"
@@ -159,7 +151,7 @@ include 'templates/header.php';
                       class="w-full bg-transparent text-sm text-[#005E2C] outline-none placeholder-[#005E2C]/50"
                     />
                   </div>
-                  
+
                   <!-- Scrollable Country List -->
                   <div
                     id="country-list"
@@ -199,10 +191,45 @@ include 'templates/header.php';
       </div>
     </section>
 
+    <!-- Footer -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
+
       // ==========================================
-      // 3. CUSTOM COUNTRY SELECTOR
+      // 1. DYNAMIC SETTINGS LOAD
+      // ==========================================
+      const contactPhoneEl = document.getElementById("contact-phone");
+      const contactEmailsEl = document.getElementById("contact-emails");
+
+      // Set default details
+      let details = {
+        address: '16A Le Quy Don Street, Nha Trang Ward, Khanh Hoa Province.',
+        phone: '(0258) 3516 343',
+        emails: ['kbizconsulting16@gmail.com', 'info@kbiz.com.vn'],
+      };
+
+      const savedSettings = localStorage.getItem("kbiz_settings");
+      if (savedSettings) {
+        try {
+          const parsed = JSON.parse(savedSettings);
+          if (parsed.phone) {
+            details.phone = parsed.phone;
+          }
+          if (parsed.email) {
+            details.emails = [parsed.email, 'info@kbiz.com.vn'];
+          }
+        } catch (e) {
+          console.error("Failed to parse LocalStorage settings:", e);
+        }
+      }
+
+      // Render details
+      contactPhoneEl.textContent = details.phone;
+      contactEmailsEl.innerHTML = details.emails.map(function (email) {
+        return '<p><a href="mailto:' + email + '" class="underline hover:text-[#B800FF] transition-colors">' + email + '</a></p>';
+      }).join('');
+      // ==========================================
+      // 2. CUSTOM COUNTRY SELECTOR
       // ==========================================
       const countrySelectBtn = document.getElementById("country-select-btn");
       const countryChevron = document.getElementById("country-chevron");
@@ -255,7 +282,7 @@ include 'templates/header.php';
           btn.type = "button";
           btn.className = "w-full flex items-center gap-2.5 px-3 py-2 text-sm text-left hover:bg-[#005E2C]/10 transition-colors text-[#005E2C] font-sans";
           btn.innerHTML = '<span class="text-base shrink-0 select-none">' + c.flag + '</span><span class="truncate">' + c.name + ' ' + c.code + '</span>';
-          
+
           btn.addEventListener("click", function () {
             selectedFlag.textContent = c.flag;
             selectedCode.textContent = c.code;
@@ -303,7 +330,7 @@ include 'templates/header.php';
 
 
       // ==========================================
-      // 4. FORM SUBMISSION
+      // 3. FORM SUBMISSION
       // ==========================================
       const contactForm = document.getElementById("contact-form");
       const formSuccessAlert = document.getElementById("form-success-alert");
@@ -311,14 +338,18 @@ include 'templates/header.php';
 
       contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
+
+        // Get fields
         const formData = new FormData(contactForm);
         const firstName = formData.get("firstName");
         const lastName = formData.get("lastName");
         const email = formData.get("email");
+
         const rawPhone = formData.get("phone");
         const countryCode = selectedCode.textContent;
         const phone = rawPhone ? (countryCode + " " + rawPhone) : "";
         const message = formData.get("message");
+
         const newMsg = {
           id: Date.now().toString(),
           firstName: firstName,
@@ -329,6 +360,22 @@ include 'templates/header.php';
           read: false,
           createdAt: new Date().toISOString()
         };
+
+        // Fetch current list
+        const savedMessages = localStorage.getItem("kbiz_messages");
+        let messages = [];
+        if (savedMessages) {
+          try {
+            messages = JSON.parse(savedMessages);
+          } catch (e) {
+            console.error("Failed to parse LocalStorage messages:", e);
+          }
+        }
+
+        // Store message
+        messages.push(newMsg);
+        localStorage.setItem("kbiz_messages", JSON.stringify(messages));
+        
         fetch('api/save_messages.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -352,8 +399,7 @@ include 'templates/header.php';
           alert("Lỗi kết nối máy chủ.");
         });
       });
+
     });
-</script>
+  </script>
 <?php include 'templates/footer.php'; ?>
-
-

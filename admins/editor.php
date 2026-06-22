@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../templates/auth.php';
 $adminActivePage = 'editor';
-$adminPageTitle = 'Editor | K-Biz Admin';
+$adminPageTitle = 'Article Editor | K-Biz Admin';
 include 'admin-header.php';
 ?>
 
@@ -620,7 +620,7 @@ include 'admin-header.php';
         }
 
         localStorage.setItem("kbiz_posts", JSON.stringify(updatedPosts));
-        fetch('../api/save_posts', {
+        fetch('../api/save_posts.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updatedPosts)
@@ -655,4 +655,3 @@ include 'admin-header.php';
   </script>
 </body>
 </html>
-

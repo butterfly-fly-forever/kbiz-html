@@ -4,435 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Business Development Support | K-Biz Consulting</title>
-  <link rel="icon" type="image/svg+xml" href="../public/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ["Montserrat", "Inter", "system-ui", "sans-serif"],
-          },
+          fontFamily: { sans: ["Montserrat", "Inter", "system-ui", "sans-serif"] },
         },
       },
     };
   </script>
+  <script src="public/js/shared.js" defer></script>
+  <script src="public/js/read-more-page.js" defer></script>
 </head>
 <body class="bg-white antialiased text-[#0C0C0C]">
-
   <div class="flex w-full flex-col font-sans">
-    
-    <!-- Header -->
-    <header id="site-header" class="sticky top-0 z-[100] w-full border-b border-gray-200/50 bg-[#DBFDEB] transition-all duration-200">
-      <div class="flex h-[120px] w-full items-center justify-between px-6 md:px-10">
-        <a href="index.html" class="flex shrink-0 items-center">
-          <img
-            src="../public/images/logo.png"
-            alt="K-Biz Consulting"
-            class="h-16 w-auto object-contain md:h-24"
-          />
-        </a>
-
-        <div class="flex h-full shrink-0 items-center gap-10">
-          <nav class="hidden h-full items-center gap-10 md:flex" aria-label="Primary">
-            <div class="group relative flex h-full items-center">
-              <a
-                href="services.html"
-                class="flex h-full items-center text-sm font-bold tracking-wide text-[#B800FF] transition-colors duration-200"
-              >
-                Services
-              </a>
-
-              <div class="pointer-events-none absolute right-0 top-full z-[200] flex min-w-[280px] flex-col gap-5 bg-[#E7AAFF] p-8 opacity-0 shadow-lg transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                <a href="services-consulting-1.html" class="text-right text-sm font-bold transition-all text-white hover:text-[#005E2C] hover:underline">
-                  Investment Consulting
-                </a>
-                <a href="services-consulting-2.html" class="text-right text-sm font-bold transition-all text-white hover:text-[#005E2C] hover:underline">
-                  Start New Business
-                </a>
-                <a href="services-consulting-3.html" class="text-right text-sm font-bold transition-all text-[#005E2C] hover:underline">
-                  Business Developing Services
-                </a>
-              </div>
-            </div>
-
-            <a
-              href="projects.html"
-              class="flex h-full items-center text-sm font-bold tracking-wide text-[#005E2C] transition-colors duration-200 hover:text-[#B800FF]"
-            >
-              Projects
-            </a>
-            <a
-              href="about-us.html"
-              class="flex h-full items-center text-sm font-bold tracking-wide text-[#005E2C] transition-colors duration-200 hover:text-[#B800FF]"
-            >
-              About us
-            </a>
-          </nav>
-
-          <a
-            href="contact.html"
-            class="hidden rounded-none px-9 py-3 text-sm font-bold uppercase tracking-widest text-white transition-colors duration-200 md:inline-block bg-[#3D0055] hover:bg-[#5C2D82]"
-          >
-            Contact
-          </a>
-
-          <button
-            type="button"
-            id="mobile-menu-btn"
-            class="p-2 text-[#005E2C] md:hidden cursor-pointer"
-            aria-label="Open menu"
-            aria-expanded="false"
-          >
-            <svg id="menu-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-            <svg id="menu-icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden">
-              <path d="M6 6l12 12M18 6L6 18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Menu Nav -->
-      <nav id="mobile-nav" class="hidden border-t border-gray-200/50 bg-[#DBFDEB] px-6 py-4 md:hidden" aria-label="Mobile">
-        <button
-          type="button"
-          id="mobile-services-btn"
-          class="flex w-full items-center justify-between py-3 text-sm font-bold text-[#B800FF]"
-          aria-expanded="false"
-        >
-          <span>Services</span>
-          <svg
-            id="mobile-services-arrow"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            class="transition-transform rotate-180"
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
-
-        <div id="mobile-services-dropdown" class="mb-2 ml-3 flex flex-col gap-2 border-l-2 border-[#E7AAFF] pl-4">
-          <a href="services-consulting-1.html" class="py-1 text-sm font-bold text-[#005E2C]">
-            Investment Consulting
-          </a>
-          <a href="services-consulting-2.html" class="py-1 text-sm font-bold text-[#005E2C]">
-            Start New Business
-          </a>
-          <a href="services-consulting-3.html" class="py-1 text-sm font-bold text-[#B800FF]">
-            Business Developing Services
-          </a>
-        </div>
-
-        <a href="projects.html" class="block py-3 text-sm font-bold text-[#005E2C]">
-          Projects
-        </a>
-        <a href="about-us.html" class="block py-3 text-sm font-bold text-[#005E2C]">
-          About us
-        </a>
-
-        <a
-          href="contact.html"
-          class="mt-2 inline-block bg-[#3D0055] px-6 py-3 text-sm font-bold uppercase tracking-widest text-white"
-        >
-          Contact
-        </a>
-      </nav>
-    </header>
-
+    <div id="header-mount"></div>
     <main class="w-full bg-white flex flex-col items-center">
-      
-      <!-- ServiceIntroFrame component equivalent -->
-      <section class="w-full">
-        <!-- Title bar -->
-        <div class="flex w-full">
-          <div class="w-[8.5%] shrink-0 bg-[#B912FC]"></div>
-          <div
-            class="flex-1 py-8 pl-8 md:py-10 md:pl-10"
-            style="background: linear-gradient(90deg, #7B00AA 0%, #B800FF 100%);"
-          >
-            <h1 class="text-[28px] font-bold uppercase leading-normal tracking-normal text-white md:text-[40px] lg:text-[50px]">
-              BUSINESS DEVELOPMENT SUPPORT
-            </h1>
-          </div>
-          <div class="w-[8.5%] shrink-0 bg-[#F0EBF1]"></div>
-        </div>
-
-        <!-- Intro bar -->
-        <div class="flex w-full">
-          <div class="w-[8.5%] shrink-0 bg-white"></div>
-          <div class="flex-1 bg-[#E8FFF3] py-10 pl-8 md:py-12 md:pl-10">
-            <h2 class="mb-6 text-[25px] font-bold leading-normal tracking-[0.01em] text-[#3D0055] md:text-[32px] lg:text-[40px]">
-              K-Biz: Strategic support for sustainable business development
-            </h2>
-            <p class="text-lg leading-[1.6] text-[#000000] pr-8 md:pr-10">
-              We offer comprehensive support for your business growth through legal consulting, administrative outsourcing, and project management services. With hands-on experience in both public and private sectors, we also deliver customized solutions and field research to drive innovation and sustainable development.
-            </p>
-          </div>
-          <div class="w-[8.5%] shrink-0 bg-white"></div>
-        </div>
-      </section>
-
-      <!-- Section 1 (Image First) -->
-      <section class="w-full bg-white border-b border-gray-100">
-        <div class="grid grid-cols-1 md:grid-cols-2 items-stretch">
-          <!-- Image -->
-          <div class="relative w-full h-[360px] md:h-full min-h-[360px] md:min-h-full overflow-hidden">
-            <img
-              src="../public/images/consulting3-operational.jpg"
-              alt="Business team reviewing financial planning documents"
-              class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </div>
-          <!-- Text -->
-          <div class="flex flex-col justify-center px-6 py-12 md:px-16 md:py-20 lg:px-24 lg:py-28 bg-white">
-            <h2 class="mb-6 text-3xl font-bold text-[#0C0C0C] md:text-[40px] lg:text-[46px] leading-[1.15] tracking-tight">
-              1. The short-term operational needs
-            </h2>
-            <div class="space-y-5 text-sm md:text-base leading-relaxed text-[#0C0C0C] opacity-90">
-              <p>
-                For short-term operational needs or project development, the efficient solution is using the
-                outsourcing service:
-              </p>
-              <ul class="list-disc space-y-4 pl-5">
-                <li>
-                  <em>
-                    <strong>Retainer Consulting Services:</strong>
-                  </em> 
-                  Our legal team can provide ongoing support for your day-to-day business operations, including labor
-                  agreements, tax compliance, commercial and civil contracts, land leasing and construction permits,
-                  environmental protection, food safety, and more.
-                </li>
-                <li>
-                  <em>
-                    <strong>Office Support Services:</strong>
-                  </em> 
-                  Our administrative staff can provide short-term support for your new business, handling tasks such as
-                  administrative duties and paperwork.
-                </li>
-                <li>
-                  <em>
-                    <strong>Project management services:</strong>
-                  </em> 
-                  Our experienced team will provide comprehensive support throughout your project, ensuring compliance with
-                  all legal and regulatory procedures, including land leasing, fire safety, environmental compliance, design
-                  approvals, and construction permits.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 2 (Text First) -->
-      <section class="w-full bg-white border-b border-gray-100 last:border-b-0">
-        <div class="grid grid-cols-1 md:grid-cols-2 items-stretch">
-          <!-- Text -->
-          <div class="flex flex-col justify-center px-6 py-12 md:px-16 md:py-20 lg:px-24 lg:py-28 bg-white order-2 md:order-1">
-            <h2 class="mb-6 text-3xl font-bold text-[#0C0C0C] md:text-[40px] lg:text-[46px] leading-[1.15] tracking-tight">
-              2. The specialized needs
-            </h2>
-            <div class="space-y-5 text-sm md:text-base leading-relaxed text-[#0C0C0C] opacity-90">
-              <p>
-                For specialized needs, we can create exceptional products by combining your creative ideas with our
-                expertise and practice experience. Let's see some unique projects in which we have done:
-              </p>
-              <ul class="list-disc space-y-4 pl-5">
-                <li>
-                  <em>
-                    <strong>The Public and Private Services Transformation (2014-2023):</strong>
-                  </em>
-                </li>
-              </ul>
-              <p>
-                We've successfully created the procedure to transform the traditional market management services from the
-                public to the private sector in Khanh Hoa and Ba Ria-Vung Tau province.
-              </p>
-              <ul class="list-disc space-y-4 pl-5">
-                <li>
-                  <em>
-                    <strong>Survey of Public Administrative Services (2018-2023):</strong>
-                  </em>
-                </li>
-              </ul>
-              <p>
-                To assess the satisfaction of public administrative services in Khanh Hoa (for example formality to issuing
-                construction permits, business registration certificates, and investment certificates…), we conducted
-                individual interviews with questionnaires to gather their feedback.
-              </p>
-              <ul class="list-disc space-y-4 pl-5">
-                <li>
-                  <em>
-                    <strong>Survey of Agricultural Value Chain in Highland and Mekong Delta (2012-2014):</strong>
-                  </em>
-                </li>
-              </ul>
-              <p>
-                As participants in the Global Competitiveness Facility for Vietnamese Enterprises (GCF), our K-Biz team
-                surveyed farmers across several provinces to assess impacts on aquaculture, vegetables, coffee, cocoa, and
-                rice production.
-              </p>
-            </div>
-          </div>
-          <!-- Image -->
-          <div class="relative w-full h-[360px] md:h-full min-h-[360px] md:min-h-full overflow-hidden order-1 md:order-2">
-            <img
-              src="../public/images/consulting3-specialized.jpg"
-              alt="Professional workspace environment"
-              class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="relative mt-[50px] flex h-[350px] w-full items-center overflow-hidden bg-[#B800FF]">
-        <div
-          class="absolute inset-0 z-0"
-          style="
-            background-image: url(&quot;data:image/svg+xml,%3Csvg preserveAspectRatio='none' viewBox='0 0 1920 350' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23a100ff' opacity='0.4' points='0,0 1920,0 960,300' /%3E%3Cpolygon fill='%23b74bff' opacity='0.6' points='0,0 1920,0 960,260' /%3E%3Cpolygon fill='%23d182ff' opacity='0.8' points='0,0 1920,0 960,220' /%3E%3Cpolygon fill='%23E7AAFF' opacity='1.0' points='0,0 1920,0 960,180' /%3E%3C/svg%3E&quot;);
-          "
-        ></div>
-        <div class="relative z-10 flex w-full flex-col items-center justify-center px-6 text-center md:px-10">
-          <h4 class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans">
-            Get an estimate for your upcoming project
-          </h4>
-          <a
-            href="contact.html"
-            class="rounded-none bg-[#B9FCD8] px-8 py-2.5 text-sm font-medium text-[#3D0055] transition-colors hover:bg-white hover:text-[#3D0055]"
-          >
-            Contact
-          </a>
-        </div>
-      </section>
-
+      <div id="read-more-mount"></div>
     </main>
-
-    <!-- Footer -->
-    <footer class="relative w-full overflow-hidden bg-white py-[6%] px-[5%] flex flex-col justify-between min-h-[500px]">
-      <!-- Background gradients -->
-      <div class="absolute inset-0 z-0 pointer-events-none" style="
-        background: radial-gradient(circle at 10% 20%, rgba(200, 100, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%), radial-gradient(circle at 80% 50%, rgba(200, 255, 200, 0.4) 0%, rgba(255, 255, 255, 0) 50%), radial-gradient(circle at 90% 90%, rgba(220, 150, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%)
-      "></div>
-
-      <!-- Top Content: Logo -->
-      <div class="z-10 w-full mb-[120px]">
-        <img src="../public/images/logo.png" alt="K-Biz Consulting" class="h-[140px] object-contain ml-[2%]" />
-      </div>
-
-      <!-- Bottom Content: Columns -->
-      <div class="z-10 w-full grid grid-cols-1 md:grid-cols-12 gap-8 items-end pb-4 pl-[2%]">
-        <!-- Location -->
-        <div class="md:col-span-4">
-          <h3 class="text-[12px] font-bold uppercase text-black mb-5 tracking-widest">
-            Location
-          </h3>
-          <p class="text-[13px] text-[#333]">
-            16A Le Quy Don St, Nha Trang Ward, Khanh Hoa Province
-          </p>
-        </div>
-
-        <!-- Contact -->
-        <div class="md:col-span-4">
-          <h3 class="text-[12px] font-bold uppercase text-black mb-5 tracking-widest">
-            Contact
-          </h3>
-          <div class="flex flex-col text-[13px] text-[#333] space-y-1.5">
-            <a href="mailto:kbizconsulting16@gmail.com" class="hover:underline">
-              kbizconsulting16@gmail.com
-            </a>
-            <a href="mailto:info@kbiz.com.vn" class="hover:underline">
-              info@kbiz.com.vn
-            </a>
-            <p>
-              (0258) 3516 343
-            </p>
-          </div>
-        </div>
-
-        <!-- Copyright & Admin Link -->
-        <div class="md:col-span-4 flex flex-col items-start md:items-end pr-[5%] gap-2">
-          <p class="text-[11px] text-[#333] tracking-widest uppercase">
-            © K-BIZ CONSULTING
-          </p>
-          <a
-            href="admins/dashboard.html"
-            class="text-[10px] font-bold text-gray-400 hover:text-green-600 transition-colors uppercase tracking-widest"
-          >
-            Admin Portal
-          </a>
-        </div>
-      </div>
-    </footer>
-
+    <div id="footer-mount"></div>
   </div>
-
-  <!-- Vanilla JS Engine -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      
-      // ==========================================
-      // 1. HEADER SCROLL DETECTION & MOBILE NAV
-      // ==========================================
-      const header = document.getElementById("site-header");
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 6) {
-          header.classList.add("shadow-sm");
-        } else {
-          header.classList.remove("shadow-sm");
+    window.READ_MORE_CONFIG = {
+      categoryTitle: "BUSINESS DEVELOPMENT SUPPORT",
+      headline: "K-Biz: Strategic support for sustainable business development",
+      intro: "We offer comprehensive support for your business growth through legal consulting, administrative outsourcing, and project management services. With hands-on experience in both public and private sectors, we also deliver customized solutions and field research to drive innovation and sustainable development.",
+      backLink: { href: "services.html", label: "Back to Services" },
+      sections: [
+        {
+          title: "1. The short-term operational needs",
+          body: "<p>For short-term operational needs or project development, the efficient solution is using the outsourcing service:</p><ul class=\"list-disc space-y-4 pl-5\"><li><em><strong>Retainer Consulting Services:</strong></em> Our legal team can provide ongoing support for your day-to-day business operations, including labor agreements, tax compliance, commercial and civil contracts, land leasing and construction permits, environmental protection, food safety, and more.</li><li><em><strong>Office Support Services:</strong></em> Our administrative staff can provide short-term support for your new business, handling tasks such as administrative duties and paperwork.</li><li><em><strong>Project management services:</strong></em> Our experienced team will provide comprehensive support throughout your project, ensuring compliance with all legal and regulatory procedures, including land leasing, fire safety, environmental compliance, design approvals, and construction permits.</li></ul>",
+          image: "public/images/consulting3-operational.jpg",
+          imageAlt: "Business team reviewing financial planning documents"
+        },
+        {
+          title: "2. The specialized needs",
+          body: "<p>For specialized needs, we can create exceptional products by combining your creative ideas with our expertise and practice experience. Let's see some unique projects in which we have done:</p><ul class=\"list-disc space-y-4 pl-5\"><li><em><strong>The Public and Private Services Transformation (2014-2023):</strong></em></li></ul><p>We've successfully created the procedure to transform the traditional market management services from the public to the private sector in Khanh Hoa and Ba Ria-Vung Tau province.</p><ul class=\"list-disc space-y-4 pl-5\"><li><em><strong>Survey of Public Administrative Services (2018-2023):</strong></em></li></ul><p>To assess the satisfaction of public administrative services in Khanh Hoa (for example formality to issuing construction permits, business registration certificates, and investment certificates…), we conducted individual interviews with questionnaires to gather their feedback.</p><ul class=\"list-disc space-y-4 pl-5\"><li><em><strong>Survey of Agricultural Value Chain in Highland and Mekong Delta (2012-2014):</strong></em></li></ul><p>As participants in the Global Competitiveness Facility for Vietnamese Enterprises (GCF), our K-Biz team surveyed farmers across several provinces to assess impacts on aquaculture, vegetables, coffee, cocoa, and rice production.</p>",
+          image: "public/images/consulting3-specialized.jpg",
+          imageAlt: "Professional workspace environment"
         }
-      }, { passive: true });
-
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileNav = document.getElementById("mobile-nav");
-      const menuIconOpen = document.getElementById("menu-icon-open");
-      const menuIconClose = document.getElementById("menu-icon-close");
-      let mobileOpen = false;
-
-      mobileMenuBtn.addEventListener("click", function () {
-        mobileOpen = !mobileOpen;
-        mobileMenuBtn.setAttribute("aria-expanded", mobileOpen);
-        if (mobileOpen) {
-          mobileNav.classList.remove("hidden");
-          menuIconOpen.classList.add("hidden");
-          menuIconClose.classList.remove("hidden");
-          document.body.style.overflow = "hidden";
-        } else {
-          mobileNav.classList.add("hidden");
-          menuIconOpen.classList.remove("hidden");
-          menuIconClose.classList.add("hidden");
-          document.body.style.overflow = "";
-        }
-      });
-
-      const mobileServicesBtn = document.getElementById("mobile-services-btn");
-      const mobileServicesDropdown = document.getElementById("mobile-services-dropdown");
-      const mobileServicesArrow = document.getElementById("mobile-services-arrow");
-      let mobileServicesOpen = false;
-
-      mobileServicesBtn.addEventListener("click", function () {
-        mobileServicesOpen = !mobileServicesOpen;
-        mobileServicesBtn.setAttribute("aria-expanded", mobileServicesOpen);
-        if (mobileServicesOpen) {
-          mobileServicesDropdown.classList.remove("hidden");
-          mobileServicesArrow.classList.add("rotate-180");
-        } else {
-          mobileServicesDropdown.classList.add("hidden");
-          mobileServicesArrow.classList.remove("rotate-180");
-        }
-      });
-
-    });
+      ]
+    };
   </script>
 </body>
 </html>

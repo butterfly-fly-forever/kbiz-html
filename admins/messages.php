@@ -74,7 +74,7 @@ include 'admin-header.php';
       function saveAndRender(newMessages) {
         messages = newMessages;
         localStorage.setItem("kbiz_messages", JSON.stringify(newMessages));
-        fetch('../api/save_messages', {
+        fetch('../api/save_messages.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newMessages)
@@ -217,4 +217,3 @@ include 'admin-header.php';
   </script>
 </body>
 </html>
-

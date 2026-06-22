@@ -153,7 +153,7 @@ include 'admin-header.php';
           phone: phoneInput.value
         };
         localStorage.setItem("kbiz_settings", JSON.stringify(newSettings));
-        fetch('../api/save_settings', {
+        fetch('../api/save_settings.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(newSettings)
@@ -162,7 +162,7 @@ include 'admin-header.php';
         .then(data => {
           if (data.success) {
             updateButtonState(true);
-            alert("Đã lưu cấu hình lên máy chủ thành công!");
+            alert("Contact details saved successfully! Public pages are updated.");
           } else {
             alert("Lỗi lưu dữ liệu lên máy chủ.");
           }
@@ -242,4 +242,3 @@ include 'admin-header.php';
   </script>
 </body>
 </html>
-

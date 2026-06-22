@@ -1,100 +1,61 @@
 <?php
 $activePage = 'about-us';
-$pageTitle = 'About us | K-Biz Consulting';
+$pageTitle = 'About Us | K-Biz Consulting';
 include 'templates/header.php';
 ?>
 
 
     <main class="w-full bg-white flex flex-col items-center">
-      
+
       <!-- Hero -->
-      <section class="relative flex min-h-[480px] w-full max-w-[1440px] items-end overflow-hidden md:min-h-[560px]">
+      <section class="relative flex min-h-screen w-full items-end overflow-hidden bg-black">
         <video
-          id="hero-video"
           autoplay
           loop
           muted
           playsinline
-          poster="public/images/11062b_1400d5c5de334faa95fd2772b400413df000.jpg"
-          class="absolute inset-0 h-full w-full object-cover"
+          poster="public/images/aboutus-poster.jpg"
+          class="absolute inset-0 h-full w-full object-cover z-10"
         >
           <source src="public/videos/aboutus.mp4" type="video/mp4" />
         </video>
-        <div class="absolute inset-0 bg-white/10"></div>
+        <div class="absolute inset-0 bg-black/35 z-10"></div>
 
-        <!-- Play Button Overlay -->
-        <div class="absolute inset-0 flex items-center justify-center z-10">
-          <button
-            id="play-video-btn"
-            class="flex h-16 w-16 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/80 hover:scale-110 active:scale-95 shadow-lg border border-white/10 cursor-pointer"
-            aria-label="Play video"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="ml-1 text-white">
+        <div class="relative z-20 w-full pb-12 pt-24 px-6 md:px-10">
+          <div class="mb-3 flex items-center gap-2">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="white" class="opacity-90">
               <path d="M8 5v14l11-7z" />
             </svg>
-          </button>
-        </div>
-
-        <div class="relative z-10 w-full pb-12 pt-24 px-6 md:px-10">
-          <!-- Eyebrow component equivalent -->
-          <div class="mb-2 flex items-center gap-2">
-            <svg width="16" height="16" viewBox="2.665 2.667 10.667 10.666" fill="#005E2C">
-              <path d="M7.999 2.667 13.332 8l-5.333 5.333H2.665V2.667z" />
-            </svg>
-            <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-[#005E2C]">ABOUT KBIZ CONSULTING</h2>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white opacity-90 hero-animate">ABOUT KBIZ CONSULTING</span>
           </div>
-          
-          <h1 class="max-w-[720px] text-4xl font-normal leading-tight text-[#b70dfc] md:text-[56px] md:leading-[1.1]">
+          <h1 class="whitespace-nowrap text-5xl font-bold leading-tight text-[#B800FF] md:text-[72px] md:leading-[1.1] hero-animate hero-animate-delay-1">
             We build projects that last
           </h1>
         </div>
       </section>
 
-      <!-- Video Modal -->
-      <div id="video-modal" class="hidden fixed inset-0 z-[999] flex items-center justify-center bg-black/90 p-4 transition-opacity duration-300">
-        <button
-          id="close-video-btn"
-          class="absolute top-6 right-6 text-white/70 hover:text-white hover:scale-110 transition-all duration-200 cursor-pointer"
-          aria-label="Close video"
-        >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        <div class="relative w-full max-w-5xl aspect-video overflow-hidden rounded-lg bg-black shadow-2xl border border-white/10">
-          <video
-            id="modal-video-player"
-            src="public/videos/aboutus.mp4"
-            controls
-            playsinline
-            class="w-full h-full object-contain"
-          ></video>
-        </div>
-      </div>
-
       <!-- Intro + Mission / Vision -->
-      <section class="w-full max-w-[1440px]">
+      <section class="w-full">
         <div class="grid grid-cols-1 md:grid-cols-2">
-          <div class="flex items-center bg-gradient-to-r from-[#e5afff] to-[#fcf4ff] px-6 py-12 md:px-10 md:py-16">
-            <p class="text-lg leading-[1.6] text-[#0C0C0C]">
-              <strong className="text-[#b70dfc]">Established in 2005.</strong> K-Biz is a leading business consulting firm in Nha Trang.
+          <div class="flex items-center bg-gradient-to-r from-[#e5afff] to-[#fcf4ff] px-10 py-12 md:px-16 md:py-16" data-animate>
+            <p class="text-lg leading-[1.6] text-black font-semibold">
+              <strong class="text-[#b70dfc]">Established in 2005.</strong> K-Biz is a leading business consulting firm in Nha Trang.
               We've successfully supported numerous projects, contributed to local reforms, and built a strong
               reputation for trust and expertise.
             </p>
           </div>
           <div class="flex flex-col">
-            <div class="bg-[#b9fcd8] px-6 py-10 md:px-10 md:py-12 flex-1">
-              <h2 class="mb-4 text-2xl font-normal text-[#b70dfc] md:text-[28px]">Our Mission</h2>
-              <p class="text-base leading-[1.5] text-[#0C0C0C]">
+            <div class="bg-[#b9fcd8] px-6 py-10 md:px-10 md:py-12 flex-1" data-animate>
+              <h2 class="mb-4 text-2xl font-normal text-[#b70dfc] md:text-[28px]" data-animate>Our Mission</h2>
+              <p class="text-base leading-[1.5] text-black font-medium">
                 Empowering businesses in Khánh Hòa and beyond through innovative solutions, expert guidance, and
                 unwavering support. We understand your unique challenges and tailor our solutions to meet your
                 specific needs.
               </p>
             </div>
-            <div class="bg-[#e6aafd] px-6 py-10 md:px-10 md:py-12 flex-1">
-              <h2 class="mb-4 text-2xl font-normal text-[#b70dfc] md:text-[28px]">Our Vision</h2>
-              <p class="text-base leading-[1.5] text-[#0C0C0C]">
+            <div class="bg-[#e6aafd] px-6 py-10 md:px-10 md:py-12 flex-1" data-animate>
+              <h2 class="mb-4 text-2xl font-normal text-[#b70dfc] md:text-[28px]" data-animate>Our Vision</h2>
+              <p class="text-base leading-[1.5] text-black font-medium">
                 To be the indispensable partner for businesses in Khánh Hòa and Nationwide, fostering growth,
                 innovation, and success. We are committed to building long-lasting relationships with our clients,
                 providing unwavering support and expertise every step of the way.
@@ -105,12 +66,12 @@ include 'templates/header.php';
       </section>
 
       <!-- Photo gallery -->
-      <section class="w-full max-w-[1440px] bg-white py-12 md:py-16 px-6 md:px-10">
+      <section class="w-full bg-white py-12 md:py-16 px-6 md:px-10">
         <div class="flex flex-col gap-2">
           <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
-            
+
             <!-- Grid Image 1 -->
-            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="0">
+            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="0" data-animate data-animate-delay="1">
               <img
                 src="public/images/team-1.jpg"
                 alt="K-Biz team at office"
@@ -118,7 +79,7 @@ include 'templates/header.php';
               />
             </div>
             <!-- Grid Image 2 -->
-            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="1">
+            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="1" data-animate data-animate-delay="2">
               <img
                 src="public/images/team-2.jpg"
                 alt="K-Biz team meeting"
@@ -126,7 +87,7 @@ include 'templates/header.php';
               />
             </div>
             <!-- Grid Image 3 -->
-            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="2">
+            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="2" data-animate data-animate-delay="3">
               <img
                 src="public/images/team-3.jpg"
                 alt="K-Biz team on site visit"
@@ -134,7 +95,7 @@ include 'templates/header.php';
               />
             </div>
             <!-- Grid Image 4 -->
-            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="3">
+            <div class="aspect-[4/5] cursor-pointer overflow-hidden group gallery-item" data-index="3" data-animate data-animate-delay="4">
               <img
                 src="public/images/gallery-1.jpg"
                 alt="K-Biz team group photo"
@@ -144,9 +105,9 @@ include 'templates/header.php';
 
           </div>
           <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
-            
+
             <!-- Grid Image 5 -->
-            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="4">
+            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="4" data-animate data-animate-delay="1">
               <img
                 src="public/images/gallery-2.jpg"
                 alt="K-Biz team at project site"
@@ -154,7 +115,7 @@ include 'templates/header.php';
               />
             </div>
             <!-- Grid Image 6 -->
-            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="5">
+            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="5" data-animate data-animate-delay="2">
               <img
                 src="public/images/gallery-3.jpg"
                 alt="K-Biz team discussion"
@@ -162,7 +123,7 @@ include 'templates/header.php';
               />
             </div>
             <!-- Grid Image 7 -->
-            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="6">
+            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="6" data-animate data-animate-delay="3">
               <img
                 src="public/images/team-group.jpg"
                 alt="K-Biz team celebration"
@@ -170,7 +131,7 @@ include 'templates/header.php';
               />
             </div>
             <!-- Grid Image 8 -->
-            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="7">
+            <div class="aspect-video cursor-pointer overflow-hidden group gallery-item" data-index="7" data-animate data-animate-delay="4">
               <img
                 src="public/images/about-office.jpg"
                 alt="K-Biz office"
@@ -203,7 +164,7 @@ include 'templates/header.php';
         </div>
 
         <div class="relative flex flex-1 items-center justify-center px-4 pb-10 min-h-0">
-          
+
           <!-- Left Chevron -->
           <button
             id="prev-lightbox-btn"
@@ -247,11 +208,11 @@ include 'templates/header.php';
 
       <!-- Key Differentiators -->
       <section class="w-full bg-white pb-16 md:pb-20 px-6 md:px-10">
-        <h2 class="mb-10 text-center text-3xl font-bold text-[#005E2C] md:text-4xl">Our Key Differentiators</h2>
+        <h2 class="mb-10 text-center text-3xl font-bold text-[#005E2C] md:text-4xl" data-animate>Our Key Differentiators</h2>
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          
+
           <!-- Differentiator 1 -->
-          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E8FFF3]">
+          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E8FFF3]" data-animate data-animate-delay="1">
             <div class="mb-5">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0C0C0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="9" r="6" />
@@ -265,7 +226,7 @@ include 'templates/header.php';
           </div>
 
           <!-- Differentiator 2 -->
-          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E7AAFF]">
+          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E7AAFF]" data-animate data-animate-delay="2">
             <div class="mb-5">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0C0C0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="18" cy="5" r="3" />
@@ -281,7 +242,7 @@ include 'templates/header.php';
           </div>
 
           <!-- Differentiator 3 -->
-          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E8FFF3]">
+          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E8FFF3]" data-animate data-animate-delay="3">
             <div class="mb-5">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0C0C0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z" />
@@ -295,7 +256,7 @@ include 'templates/header.php';
           </div>
 
           <!-- Differentiator 4 -->
-          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E7AAFF]">
+          <div class="flex flex-col items-center rounded-2xl px-10 py-14 md:px-12 md:py-16 text-center bg-[#E7AAFF]" data-animate data-animate-delay="4">
             <div class="mb-5">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0C0C0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -312,11 +273,11 @@ include 'templates/header.php';
       </section>
 
       <!-- Team -->
-      <section class="w-full max-w-[1440px] bg-white pb-16 md:pb-20 px-6 md:px-10">
+      <section class="w-full bg-white pb-16 md:pb-20 px-6 md:px-10">
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          
+
           <!-- Member 1 -->
-          <article class="flex flex-col items-center text-center">
+          <article class="flex flex-col items-center text-center" data-animate data-animate-delay="1">
             <div class="relative mb-6 flex w-full overflow-hidden">
               <img src="public/images/team-huynh-thi-hang.png" alt="Huỳnh Thị Hằng" class="w-full h-auto object-cover" />
             </div>
@@ -325,7 +286,7 @@ include 'templates/header.php';
           </article>
 
           <!-- Member 2 -->
-          <article class="flex flex-col items-center text-center">
+          <article class="flex flex-col items-center text-center" data-animate data-animate-delay="2">
             <div class="relative mb-6 flex w-full overflow-hidden">
               <img src="public/images/team-khanh-hiep.png" alt="Nguyễn Trần Khánh Hiệp" class="w-full h-auto object-cover" />
             </div>
@@ -334,7 +295,7 @@ include 'templates/header.php';
           </article>
 
           <!-- Member 3 -->
-          <article class="flex flex-col items-center text-center">
+          <article class="flex flex-col items-center text-center" data-animate data-animate-delay="3">
             <div class="relative mb-6 flex w-full overflow-hidden">
               <img src="public/images/team-thuy-nhi.png" alt="Từ Ngọc Thùy Nhi" class="w-full h-auto object-cover" />
             </div>
@@ -343,7 +304,7 @@ include 'templates/header.php';
           </article>
 
           <!-- Member 4 -->
-          <article class="flex flex-col items-center text-center">
+          <article class="flex flex-col items-center text-center" data-animate data-animate-delay="4">
             <div class="relative mb-6 flex w-full overflow-hidden">
               <img src="public/images/team-thai-son.png" alt="Hà Thái Sơn" class="w-full h-auto object-cover" />
             </div>
@@ -353,9 +314,9 @@ include 'templates/header.php';
 
         </div>
         <div class="mx-auto mt-8 grid max-w-[720px] grid-cols-1 gap-8 sm:grid-cols-2">
-          
+
           <!-- Member 5 -->
-          <article class="flex flex-col items-center text-center">
+          <article class="flex flex-col items-center text-center" data-animate data-animate-delay="1">
             <div class="relative mb-6 flex w-full overflow-hidden">
               <img src="public/images/team-hai-anh.png" alt="Nguyễn Thị Hải Anh" class="w-full h-auto object-cover" />
             </div>
@@ -364,7 +325,7 @@ include 'templates/header.php';
           </article>
 
           <!-- Member 6 -->
-          <article class="flex flex-col items-center text-center">
+          <article class="flex flex-col items-center text-center" data-animate data-animate-delay="2">
             <div class="relative mb-6 flex w-full overflow-hidden">
               <img src="public/images/team-kim-khanh.png" alt="Bùi Kim Khánh" class="w-full h-auto object-cover" />
             </div>
@@ -376,7 +337,7 @@ include 'templates/header.php';
       </section>
 
       <!-- CTA -->
-       <section class="relative flex h-[350px] w-full items-center overflow-hidden bg-[#B800FF]">
+       <section class="relative flex h-[350px] w-full items-center overflow-hidden bg-[#B800FF]" data-animate>
       <div
         class="absolute inset-0 z-0"
         style="
@@ -384,12 +345,12 @@ include 'templates/header.php';
         "
       ></div>
       <div class="relative z-10 flex w-full flex-col items-center justify-center px-6 text-center md:px-10">
-        <h4 class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans">
+        <h4 class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans" data-animate>
           Get an estimate for your upcoming project
         </h4>
         <a
           href="contact"
-          class="rounded-none bg-[#B9FCD8] px-8 py-2.5 text-sm font-medium text-[#3D0055] transition-colors hover:bg-white hover:text-[#3D0055]"
+          class="rounded-none bg-[#B9FCD8] px-8 py-2.5 text-sm font-medium text-[#3D0055] transition-colors hover:bg-white hover:text-[#3D0055]" data-animate
         >
           Contact
         </a>
@@ -398,37 +359,12 @@ include 'templates/header.php';
 
     </main>
 
+    <!-- Footer -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // ==========================================
-      // 2. VIDEO POPUP MODAL
-      // ==========================================
-      const playVideoBtn = document.getElementById("play-video-btn");
-      const videoModal = document.getElementById("video-modal");
-      const closeVideoBtn = document.getElementById("close-video-btn");
-      const modalVideoPlayer = document.getElementById("modal-video-player");
-
-      playVideoBtn.addEventListener("click", function () {
-        videoModal.classList.remove("hidden");
-        modalVideoPlayer.play();
-      });
-
-      function closeVideoModal() {
-        videoModal.classList.add("hidden");
-        modalVideoPlayer.pause();
-        modalVideoPlayer.currentTime = 0;
-      }
-
-      closeVideoBtn.addEventListener("click", closeVideoModal);
-      videoModal.addEventListener("click", function (e) {
-        if (e.target === videoModal) {
-          closeVideoModal();
-        }
-      });
-
 
       // ==========================================
-      // 3. LIGHTBOX GALLERY
+      // LIGHTBOX GALLERY
       // ==========================================
       const galleryImages = [
         { src: 'public/images/team-1.jpg', alt: 'K-Biz team at office' },
@@ -439,10 +375,10 @@ include 'templates/header.php';
         { src: 'public/images/gallery-3.jpg', alt: 'K-Biz team discussion' },
         { src: 'public/images/team-group.jpg', alt: 'K-Biz team celebration' },
         { src: 'public/images/about-office.jpg', alt: 'K-Biz office' },
-        { src: 'public/images/project-khanhhoa.jpg', alt: 'K-Biz field visit' },
       ];
 
       let selectedImageIndex = null;
+      let mobileOpen = false;
 
       const lightboxModal = document.getElementById("lightbox-modal");
       const lightboxImg = document.getElementById("lightbox-img");
@@ -469,7 +405,7 @@ include 'templates/header.php';
       function updateLightbox() {
         if (selectedImageIndex === null) return;
         const photo = galleryImages[selectedImageIndex];
-        
+
         lightboxImg.src = photo.src;
         lightboxImg.alt = photo.alt;
         lightboxCaption.textContent = photo.alt;
@@ -515,7 +451,7 @@ include 'templates/header.php';
           updateLightbox();
         }
       });
-    });
-</script>
-<?php include 'templates/footer.php'; ?>
 
+    });
+  </script>
+<?php include 'templates/footer.php'; ?>

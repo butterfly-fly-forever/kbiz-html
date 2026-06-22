@@ -1,55 +1,39 @@
 <?php
 $activePage = 'projects';
-$pageTitle = 'Projects | K-Biz Consulting';
+$pageTitle = 'Projects & Case Studies | K-Biz Consulting';
 include 'templates/header.php';
 ?>
 
 
     <!-- Hero -->
-    <section id="hero-section" class="relative flex h-[min(72vh,720px)] w-full items-end overflow-hidden bg-black">
-      
-      <!-- Video Element (Hidden Initially) -->
+    <section id="hero-section" class="relative flex min-h-screen w-full items-end overflow-hidden bg-black">
+
+      <!-- Video Element (Autoplay) -->
       <video
         id="hero-video-player"
         src="public/videos/projects.mp4"
+        autoplay
+        muted
+        loop
         playsinline
-        class="absolute inset-0 h-full w-full object-cover hidden z-10"
+        poster="/public/images/projects.jpg"
+        class="absolute inset-0 h-full w-full object-cover z-10"
       ></video>
 
-      <!-- Background Image -->
-      <img
-        id="hero-bg-img"
-        src="public/images/projects.jpg"
-        alt="We build projects that last"
-        class="absolute inset-0 h-full w-full object-cover z-0"
-      />
-      <div id="hero-overlay" class="absolute inset-0 bg-black/35 z-0"></div>
-      
-      <!-- Play Button Overlay -->
-      <div id="hero-play-overlay" class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-        <button
-          id="play-video-btn"
-          class="flex h-12 w-12 items-center justify-center rounded-full bg-black/80 text-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg cursor-pointer pointer-events-auto z-20"
-          aria-label="Play project video"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="ml-0.5 text-white">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </button>
-      </div>
+      <div id="hero-overlay" class="absolute inset-0 bg-black/35 z-10"></div>
 
       <!-- Text Overlay -->
-      <div id="hero-text-overlay" class="relative z-10 w-full pb-12 pt-24 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52 pointer-events-none">
+      <div id="hero-text-overlay" class="relative z-20 w-full pb-12 pt-24 px-6 md:px-10 pointer-events-none">
         <!-- Eyebrow -->
         <div class="mb-3 flex items-center gap-2">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="white" class="opacity-90">
             <path d="M8 5v14l11-7z" />
           </svg>
-          <span class="text-xs font-bold uppercase tracking-[0.25em] text-white opacity-90">
+          <span class="text-xs font-bold uppercase tracking-[0.25em] text-white opacity-90 hero-animate">
             Our Projects
           </span>
         </div>
-        <h1 class="max-w-[640px] text-4xl font-bold leading-tight text-white md:text-[56px] md:leading-[1.1]">
+        <h1 class="whitespace-nowrap text-5xl font-bold leading-tight text-[#B9FCD8] md:text-[72px] md:leading-[1.1] hero-animate hero-animate-delay-1">
           We build projects that last
         </h1>
       </div>
@@ -65,7 +49,7 @@ include 'templates/header.php';
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg>
         </div>
-        
+
         <!-- Top Right: Close Icon -->
         <button
           id="close-lightbox-btn"
@@ -128,15 +112,13 @@ include 'templates/header.php';
     <!-- About + Mission / Vision -->
     <section class="w-full">
       <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="flex items-center bg-gradient-to-r from-[#E7AAFF] to-white px-12 py-16 md:px-20 md:py-24 lg:px-28 lg:py-28 xl:px-32">
+        <div data-animate class="flex items-center bg-gradient-to-r from-[#E7AAFF] to-white px-20 py-16 md:px-28 md:py-24">
           <p class="text-lg leading-[1.6] text-[#0C0C0C]">
-            <span class="text-[#B800FF] font-semibold">Over 20 years of experience</span> in the Vietnamese market, K-Biz provides comprehensive
-            legal, financial, and business development support services to help you navigate the complexities of
-            doing business in Vietnam.
+            <span class="text-[#B800FF] font-semibold">Over 20 years of experience</span> in the Vietnamese market, K-Biz provides comprehensive legal, financial, and business development support services to help you navigate the complexities of doing business in Vietnam.
           </p>
         </div>
         <div class="flex flex-col">
-          <div class="flex flex-1 flex-col justify-center bg-[#B9FCD8] px-12 py-12 md:px-16 md:py-16 lg:px-20 lg:py-20 xl:px-24">
+          <div data-animate class="flex flex-1 flex-col justify-center bg-[#B9FCD8] px-14 py-12 md:px-20 md:py-16">
             <h2 class="mb-4 text-2xl font-bold text-[#B800FF] md:text-[28px]">Our Mission</h2>
             <p class="text-base leading-[1.5] text-[#0C0C0C]">
               Empowering businesses in Khánh Hòa and beyond through innovative solutions, expert guidance, and
@@ -144,7 +126,7 @@ include 'templates/header.php';
               specific needs.
             </p>
           </div>
-          <div class="flex flex-1 flex-col justify-center bg-[#E7AAFF] px-12 py-12 md:px-16 md:py-16 lg:px-20 lg:py-20 xl:px-24">
+          <div data-animate class="flex flex-1 flex-col justify-center bg-[#E7AAFF] px-14 py-12 md:px-20 md:py-16">
             <h2 class="mb-4 text-2xl font-bold text-[#B800FF] md:text-[28px]">Our Vision</h2>
             <p class="text-base leading-[1.5] text-[#0C0C0C]">
               To be the indispensable partner for businesses in Khánh Hòa and Nationwide, fostering growth,
@@ -157,14 +139,16 @@ include 'templates/header.php';
     </section>
 
     <!-- Projects We Worked -->
-    <section class="w-full bg-white pt-16 pb-12 md:pt-24 md:pb-16 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
-      <h2 class="mb-10 text-3xl font-bold text-[#3D0055] md:text-4xl">Projects We Worked</h2>
+    <section class="w-full bg-white pt-16 pb-12 md:pt-24 md:pb-16 px-6 md:px-10">
+      <h2 data-animate class="mb-10 text-3xl font-bold text-[#3D0055] md:text-4xl">Projects We Worked</h2>
       <div class="grid grid-cols-1 gap-0 md:gap-0 md:grid-cols-12 md:grid-rows-2">
-        
+
         <!-- Project 0 -->
         <div
           class="cursor-pointer group relative overflow-hidden md:col-span-5 md:row-span-2 md:min-h-[520px] project-item"
           data-index="0"
+          data-animate
+          data-animate-delay="0"
         >
           <img
             src="public/images/project-vanphong.jpg"
@@ -183,6 +167,8 @@ include 'templates/header.php';
         <div
           class="cursor-pointer group relative overflow-hidden md:col-span-3 md:row-span-1 md:min-h-[250px] project-item"
           data-index="1"
+          data-animate
+          data-animate-delay="1"
         >
           <img
             src="public/images/project-australis.jpg"
@@ -201,6 +187,8 @@ include 'templates/header.php';
         <div
           class="cursor-pointer group relative overflow-hidden md:col-span-4 md:row-span-1 md:min-h-[250px] project-item"
           data-index="3"
+          data-animate
+          data-animate-delay="2"
         >
           <img
             src="public/images/project-mia.jpg"
@@ -219,6 +207,8 @@ include 'templates/header.php';
         <div
           class="cursor-pointer group relative overflow-hidden md:col-span-3 md:row-span-1 md:min-h-[250px] project-item"
           data-index="2"
+          data-animate
+          data-animate-delay="3"
         >
           <img
             src="public/images/project-hospital.png"
@@ -237,6 +227,8 @@ include 'templates/header.php';
         <div
           class="cursor-pointer group relative overflow-hidden md:col-span-4 md:row-span-1 md:min-h-[250px] project-item"
           data-index="4"
+          data-animate
+          data-animate-delay="4"
         >
           <img
             src="public/images/project-olympia.jpg"
@@ -254,78 +246,59 @@ include 'templates/header.php';
       </div>
     </section>
 
-    <!-- Case Studies -->
-    <section class="w-full bg-white py-16 md:py-24 px-6 md:px-16 lg:px-28 xl:px-40 2xl:px-52">
-      <h2 class="mb-10 text-3xl font-bold text-[#3D0055] md:text-4xl">Case Studies &amp; Discussions</h2>
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        
-        <!-- Case Study 1 -->
-        <article class="flex flex-col">
+    <!-- Case Studies & Discussions -->
+    <section class="w-full bg-white pt-10 pb-16 md:pt-14 md:pb-24 px-6 md:px-10">
+      <h2 data-animate class="mb-10 text-3xl font-bold text-[#7700BB] md:text-4xl">Case Studies & Discussions</h2>
+
+      <!-- Article cards -->
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-16">
+
+        <article data-animate data-animate-delay="1" class="flex flex-col">
           <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
-            <img src="public/images/blog-busan.jpg" alt="" class="h-full w-full object-cover" />
+            <img src="public/images/blog-busan.jpg" alt="" class="h-full w-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Perspective on Traditional Market Model – Part 1: The fish market in Busan</h3>
           <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
-            Ever wondered what it's like to explore a traditional fish market in South Korea? From fresh seafood to 
+            Ever wondered what it's like to explore a traditional fish market in South Korea? From fresh seafood to unique cultural contrasts, this article takes you through the vibrant Busan Fish Market.
           </p>
-          <a
-            href="project-1"
-            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
-          >
-            Read More
-          </a>
+          <a href="case-busan" class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]">Read More</a>
         </article>
 
-        <!-- Case Study 2 -->
-        <article class="flex flex-col">
+        <article data-animate data-animate-delay="2" class="flex flex-col">
           <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
-            <img src="public/images/project-z596.jpg" alt="" class="h-full w-full object-cover" />
+            <img src="public/images/blog-chodam.jpg" alt="" class="h-full w-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Perspective on Traditional Market Model – Part 2: The market in Vietnam</h3>
           <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
-            Curious about how Vietnam's traditional fish markets compare to those in other countries? 
+            Curious about how Vietnam's traditional fish markets compare to those in other countries? Discover the challenges they face and why improving these markets could be the key to attracting more domestic customers.
           </p>
-          <a
-            href="#"
-            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
-          >
-            Read More
-          </a>
+          <a href="case-vietnam" class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]">Read More</a>
         </article>
 
-        <!-- Case Study 3 -->
-        <article class="flex flex-col">
+        <article data-animate data-animate-delay="3" class="flex flex-col">
           <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
-            <img src="public/images/blog-supermarket.jpg" alt="" class="h-full w-full object-cover" />
+            <img src="public/images/blog-supermarket.jpg" alt="" class="h-full w-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
           <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Perspective on Traditional Market Model – Part 3: Shopping at market or supermarket</h3>
           <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
+            Market or supermarket — the answer depends on who you are, what you're buying, and why you're shopping. A field study from Khánh Hòa.
           </p>
-          <a
-            href="#"
-            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
-          >
-            Read More
-          </a>
+          <a href="case-supermarket" class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]">Read More</a>
         </article>
 
-        <!-- Case Study 4 -->
-        <article class="flex flex-col">
+        <article data-animate data-animate-delay="4" class="flex flex-col">
           <div class="mb-4 aspect-[4/3] w-full overflow-hidden">
-            <img src="public/images/blog-thinhvuong.jpg" alt="" class="h-full w-full object-cover" />
+            <img src="public/images/blog-thinhvuong.jpg" alt="" class="h-full w-full object-cover hover:scale-105 transition-transform duration-500" />
           </div>
-          <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Thinh Vuong 2</h3>
+          <h3 class="mb-3 text-base font-bold leading-snug text-[#3D0055]">Thinh Vuong 2 — Market Development Case Study</h3>
           <p class="mb-6 flex-1 text-sm leading-[1.5] text-[#0C0C0C]">
+            A case study on the planning, investment consulting, and development of the Thinh Vuong 2 market project in Khánh Hòa Province.
           </p>
-          <a
-            href="#"
-            class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]"
-          >
-            Read More
-          </a>
+          <a href="case-thinh-vuong" class="inline-block w-fit bg-[#3D0055] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#5C2D82]">Read More</a>
         </article>
 
       </div>
+
     </section>
 
     <!-- CTA -->
@@ -337,11 +310,13 @@ include 'templates/header.php';
         "
       ></div>
       <div class="relative z-10 flex w-full flex-col items-center justify-center px-6 text-center md:px-10">
-        <h4 class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans">
+        <h4 data-animate class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans">
           Get an estimate for your upcoming project
         </h4>
         <a
           href="contact"
+          data-animate
+          data-animate-delay="1"
           class="rounded-none bg-[#B9FCD8] px-8 py-2.5 text-sm font-medium text-[#3D0055] transition-colors hover:bg-white hover:text-[#3D0055]"
         >
           Contact
@@ -349,64 +324,40 @@ include 'templates/header.php';
       </div>
     </section>
 
+    <!-- Footer -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // ==========================================
-      // 2. HERO VIDEO INLINE PLAY
-      // ==========================================
-      const playVideoBtn = document.getElementById("play-video-btn");
-      const heroVideoPlayer = document.getElementById("hero-video-player");
-      const heroBgImg = document.getElementById("hero-bg-img");
-      const heroOverlay = document.getElementById("hero-overlay");
-      const heroPlayOverlay = document.getElementById("hero-play-overlay");
-      const heroTextOverlay = document.getElementById("hero-text-overlay");
-
-      if (playVideoBtn && heroVideoPlayer) {
-        playVideoBtn.addEventListener("click", function () {
-          // Hide backgrounds and overlays
-          if (heroBgImg) heroBgImg.classList.add("hidden");
-          if (heroOverlay) heroOverlay.classList.add("hidden");
-          if (heroPlayOverlay) heroPlayOverlay.classList.add("hidden");
-          if (heroTextOverlay) heroTextOverlay.classList.add("hidden");
-
-          // Show and play video
-          heroVideoPlayer.classList.remove("hidden");
-          heroVideoPlayer.setAttribute("controls", "true");
-          heroVideoPlayer.play();
-        });
-      }
-
 
       // ==========================================
-      // 3. PROJECT LIGHTBOX MODAL
+      // PROJECT LIGHTBOX MODAL
       // ==========================================
       const workedProjects = [
         {
-          src: 'public/images/project-vanphong.jpg',
+          src: '/public/images/project-vanphong.jpg',
           alt: 'Van Phong 1 BOT Thermal Power Plant',
           title: 'VAN PHONG 1 BOT THERMAL POWER PLANT',
           subtitle: 'Registering for investment in the operation services of Van Phong Thermal Power Plant.'
         },
         {
-          src: 'public/images/project-australis.jpg',
+          src: '/public/images/project-australis.jpg',
           alt: 'Australis Aquaculture Vietnam',
           title: 'AUSTRALIS AQUACULTURE VIETNAM',
           subtitle: 'Support in regulatory and licensing procedures for aquaculture operations.'
         },
         {
-          src: 'public/images/project-hospital.png',
+          src: '/public/images/project-hospital.png',
           alt: 'Saigon Nha Trang General Hospital',
           title: 'SAIGON NHA TRANG GENERAL HOSPITAL',
           subtitle: 'Advisory on project planning and legal documentation for healthcare infrastructure.'
         },
         {
-          src: 'public/images/project-mia.jpg',
+          src: '/public/images/project-mia.jpg',
           alt: 'Mia Resort Nha Trang',
           title: 'MIA RESORT NHA TRANG',
           subtitle: 'Consulting on expansion planning and environmental impact assessment.'
         },
         {
-          src: 'public/images/project-olympia.jpg',
+          src: '/public/images/project-olympia.jpg',
           alt: 'Olympia General Clinic',
           title: 'OLYMPIA GENERAL CLINIC',
           subtitle: 'Licensing, business registration and compliance counseling for medical services.'
@@ -433,15 +384,13 @@ include 'templates/header.php';
       function closeLightbox() {
         selectedProjectIndex = null;
         projectLightbox.classList.add("hidden");
-        if (!mobileOpen) {
-          document.body.style.overflow = "";
-        }
+        document.body.style.overflow = "";
       }
 
       function updateLightbox() {
         if (selectedProjectIndex === null) return;
         const project = workedProjects[selectedProjectIndex];
-        
+
         lightboxImg.src = project.src;
         lightboxImg.alt = project.alt;
         lightboxTitle.textContent = project.title;
@@ -488,7 +437,7 @@ include 'templates/header.php';
           updateLightbox();
         }
       });
-    });
-</script>
-<?php include 'templates/footer.php'; ?>
 
+    });
+  </script>
+<?php include 'templates/footer.php'; ?>

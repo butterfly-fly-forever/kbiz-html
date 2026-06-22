@@ -6,7 +6,7 @@ include 'templates/header.php';
 
 
     <!-- Hero -->
-    <section class="relative flex h-[720px] w-full flex-col overflow-hidden">
+    <section class="relative flex min-h-screen w-full flex-col overflow-hidden">
       <div class="absolute inset-0 z-10 bg-gradient-to-r from-[rgba(61,0,85,0.95)] via-[rgba(184,0,255,0.75)_35%] via-[rgba(184,0,255,0.3)_55%] to-transparent"></div>
       <div class="absolute inset-0 z-0">
         <img
@@ -16,14 +16,14 @@ include 'templates/header.php';
         />
       </div>
 
-      <div class="relative z-20 flex h-full w-full flex-col justify-center px-6 md:px-10">
-        <h1 class="max-w-[561px] text-4xl font-normal leading-tight tracking-[-2.25px] text-white md:text-[56px] md:leading-[62px]">
+      <div class="relative z-20 flex h-full w-full flex-col justify-center px-6 md:px-10" style="min-height: inherit;">
+        <h1 class="hero-animate max-w-[561px] text-4xl font-normal leading-tight tracking-[-2.25px] text-white md:text-[56px] md:leading-[62px]">
           INNOVATIVE CONSULTING FOR A SMARTER GROWTH
         </h1>
-        <p class="mt-4 max-w-[540px] text-base leading-6 text-white">
-          As experts from Khánh Hòa, we’re here to be your consulting partner on the business journey
+        <p class="hero-animate hero-animate-delay-1 mt-4 max-w-[540px] text-base leading-6 text-white">
+          As experts from Khánh Hòa, we're here to be your consulting partner on the business journey
         </p>
-        <div class="mt-8">
+        <div class="hero-animate hero-animate-delay-2 mt-8">
           <!-- ArrowLink Component mockup -->
           <a href="projects" class="group flex items-center gap-4">
             <div class="flex h-11 w-11 items-center justify-center transition-colors duration-300 bg-[#B7FCD7] text-[#0C0C0C] group-hover:bg-white">
@@ -41,7 +41,7 @@ include 'templates/header.php';
 
     <!-- Services -->
     <section id="services" class="relative w-full bg-[#E8FFF3] py-20">
-      
+
       <!-- ShapeDivider services-top -->
       <div class="pointer-events-none absolute left-0 z-10 w-full overflow-hidden top-0" style="height: 142px; opacity: 0.84;">
         <div class="absolute left-0 w-full" style="height: 142px; opacity: 0.25; background-image: url('data:image/svg+xml,%3Csvg preserveAspectRatio=\'none\' viewBox=\'0 100 1920 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath fill=\'%23B800FF\' d=\'M1920 300 0 100v200h1920z\'/%3E%3C/svg%3E\'); background-size: 100% 100%; transform: scale(-1, -1); top: 0;"></div>
@@ -51,23 +51,23 @@ include 'templates/header.php';
       </div>
 
       <div class="relative z-20 w-full px-6 md:px-10 mt-16">
-        
+
         <!-- Eyebrow component -->
-        <div class="mb-2 flex items-center gap-2">
+        <div class="mb-2 flex items-center gap-2" data-animate>
           <svg width="16" height="16" viewBox="2.665 2.667 10.667 10.666" fill="#005E2C">
             <path d="M7.999 2.667 13.332 8l-5.333 5.333H2.665V2.667z" />
           </svg>
           <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-[#005E2C]">Services</h2>
         </div>
 
-        <h3 class="mb-12 text-3xl leading-tight text-[#3D0055] md:text-4xl">
+        <h3 class="mb-12 text-3xl leading-tight text-[#3D0055] md:text-4xl" data-animate>
           Diverse solutions tailored to your business
         </h3>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-          
+
           <!-- Card 1 -->
-          <div class="flex flex-col items-center text-center">
+          <div class="flex flex-col items-center text-center" data-animate data-animate-delay="1">
             <div class="mb-6 aspect-[4/3] w-full overflow-hidden">
               <img
                 src="public/images/svc-consulting-3.jpg"
@@ -90,7 +90,7 @@ include 'templates/header.php';
           </div>
 
           <!-- Card 2 -->
-          <div class="flex flex-col items-center text-center">
+          <div class="flex flex-col items-center text-center" data-animate data-animate-delay="2">
             <div class="mb-6 aspect-[4/3] w-full overflow-hidden">
               <img
                 src="public/images/svc-consulting-1.jpg"
@@ -113,7 +113,7 @@ include 'templates/header.php';
           </div>
 
           <!-- Card 3 -->
-          <div class="flex flex-col items-center text-center">
+          <div class="flex flex-col items-center text-center" data-animate data-animate-delay="3">
             <div class="mb-6 aspect-[4/3] w-full overflow-hidden">
               <img
                 src="public/images/svc-consulting-2.jpg"
@@ -162,26 +162,26 @@ include 'templates/header.php';
       <div class="absolute inset-0 z-10 bg-gradient-to-r from-[rgba(61,0,85,0.96)] via-[rgba(184,0,255,0.6)_45%] to-[rgba(184,0,255,0.25)]"></div>
 
       <div class="relative z-20 flex h-full w-full flex-col justify-center px-6 md:px-10">
-        
+
         <!-- Eyebrow mint component -->
-        <div class="mb-2 flex items-center gap-2">
+        <div class="mb-2 flex items-center gap-2" data-animate>
           <svg width="16" height="16" viewBox="2.665 2.667 10.667 10.666" fill="#B7FCD7">
             <path d="M7.999 2.667 13.332 8l-5.333 5.333H2.665V2.667z" />
           </svg>
           <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-[#B7FCD7]">About K-Biz Consulting</h2>
         </div>
 
-        <h2 class="mb-4 text-4xl font-bold leading-none text-white md:text-5xl">
+        <h2 class="mb-4 text-4xl font-bold leading-none text-white md:text-5xl" data-animate>
           WORK WITH PASSION
         </h2>
-        <p class="mb-8 max-w-[600px] text-base leading-[26px] text-white">
+        <p class="mb-8 max-w-[600px] text-base leading-[26px] text-white" data-animate>
           With decades of extensive industry experience supporting organisations through critical
           challenges, our teams of professionals provide concrete, actionable advice to design and
           guide strategy.
         </p>
-        
+
         <!-- ArrowLink dark component mockup -->
-        <a href="about-us" class="group flex items-center gap-4">
+        <a href="about-us" class="group flex items-center gap-4" data-animate>
           <div class="flex h-11 w-11 items-center justify-center transition-colors duration-300 bg-[#B7FCD7] text-[#0C0C0C] group-hover:bg-white">
             <svg width="20" height="20" viewBox="20 41.091 160 117.822" fill="currentColor">
               <path d="M28 92h-8v16h8V92zm149.657 13.657a8 8 0 0 0 0-11.314l-50.912-50.912a8 8 0 0 0-11.314 11.314L160.687 100l-45.255 45.255a8 8 0 0 0 11.314 11.314l50.911-50.912zM28 108h144V92H28v16z" />
@@ -208,12 +208,12 @@ include 'templates/header.php';
     <!-- Case Studies & Projects -->
     <section id="projects" class="relative w-full bg-[#D0FCE5] pb-20 md:pb-28">
       <div class="w-full px-10">
-        
+
         <!-- Slider 1: Case Studies -->
         <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 mb-20 md:mb-28 pt-8 md:pt-12">
           <!-- Left Column: Text & Controls -->
           <div class="flex flex-col justify-between min-h-[420px] lg:col-span-5 pr-0 lg:pr-8">
-            <div id="case-studies-text-container" class="animate-fade-in">
+            <div id="case-studies-text-container" class="animate-fade-in" data-animate>
               <!-- Rendered dynamically via JavaScript -->
             </div>
 
@@ -243,13 +243,15 @@ include 'templates/header.php';
           </div>
 
           <!-- Right Column: Image -->
-          <div class="h-[380px] overflow-hidden shadow-lg lg:col-span-7 md:h-[480px]" id="case-studies-image-container">
+          <div class="h-[380px] overflow-hidden shadow-lg lg:col-span-7 md:h-[480px]" id="case-studies-image-container" data-animate>
             <!-- Rendered dynamically via JavaScript -->
           </div>
         </div>
 
-        <!-- Slider 2: Project Banner Slider -->
-        <div class="relative h-[400px] md:h-[650px] w-full overflow-hidden shadow-lg group" id="project-banner-slider">
+      </div><!-- close px-10 wrapper -->
+
+      <!-- Slider 2: Project Banner Slider (full width) -->
+      <div class="relative h-[400px] md:h-[650px] w-full overflow-hidden shadow-lg group" id="project-banner-slider">
           <!-- Slide Image -->
           <img
             id="project-slide-img"
@@ -257,10 +259,10 @@ include 'templates/header.php';
             alt="VAN PHONG 1 BOT THERMAL POWER PLANT"
             class="h-full w-full object-cover transition-all duration-500 ease-in-out"
           />
-          
+
           <!-- Purple Translucent Overlay -->
           <div class="absolute inset-0 bg-[rgba(184,0,255,0.65)] z-0"></div>
-          
+
           <!-- Left Navigation Arrow -->
           <button
             type="button"
@@ -272,7 +274,7 @@ include 'templates/header.php';
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
-          
+
           <!-- Right Navigation Arrow -->
           <button
             type="button"
@@ -284,7 +286,7 @@ include 'templates/header.php';
               <path d="M9 18l6-6-6-6" />
             </svg>
           </button>
-          
+
           <!-- Center Bottom Text Info -->
           <div id="project-slide-text" class="absolute inset-x-0 bottom-0 z-10 py-10 text-center px-6">
             <h4 id="project-slide-title" class="mb-2 text-4xl font-bold tracking-[0.05em] text-white md:text-[28px] uppercase">
@@ -296,13 +298,12 @@ include 'templates/header.php';
           </div>
         </div>
 
-      </div>
     </section>
 
     <!-- Testimonials -->
     <section class="relative w-full bg-gradient-to-b from-[#D0FCE5] to-[#E9D6FF] py-20 md:py-24 overflow-hidden">
       <div class="relative mx-auto w-full max-w-[1440px] px-10">
-        
+
         <!-- Header & Controls Container -->
         <div class="flex items-center justify-between mb-8 relative z-20">
           <div class="flex-1 text-center">
@@ -336,9 +337,9 @@ include 'templates/header.php';
         </div>
 
         <!-- Testimonial Quote & Info -->
-        <div id="testimonial-container" class="mx-auto max-w-[1000px] text-center px-4 relative z-10">
+        <div id="testimonial-container" class="mx-auto max-w-[1000px] text-center px-4 relative z-10" data-animate>
           <h3 id="testimonial-quote" class="mb-8 text-2xl font-bold leading-snug tracking-[-1px] text-[#3D0055] md:text-[36px] md:leading-[52px]">
-            "I could not have performed any of these tasks with a successful outcome, without the professional work performed by K-Biz’s team."
+            "I could not have performed any of these tasks with a successful outcome, without the professional work performed by K-Biz's team."
           </h3>
           <p id="testimonial-name" class="text-base font-bold text-[#3D0055] md:text-lg">
             Mr. Paul Anthony Hinkley
@@ -381,16 +382,16 @@ include 'templates/header.php';
     <section class="relative w-full bg-[#D0FCE5] py-16">
       <div class="w-full px-10">
         <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 w-full">
-          
+
           <!-- Left Column: giant text and overlay description -->
-          <div class="relative flex items-center justify-center min-h-[420px] lg:col-span-7 w-full">
+          <div class="relative flex items-center justify-center min-h-[420px] lg:col-span-7 w-full" data-animate>
             <!-- Behind: giant text -->
-            <div class="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none z-0">
+            <div class="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none z-0" style="padding-left: 18%;">
               <span class="text-[72px] md:text-[100px] lg:text-[115px] font-black leading-[0.95] text-[#B800FF] tracking-tight text-center">
                 MEET<br />OUR<br />EXPERT
               </span>
             </div>
-            
+
             <!-- In front: left-aligned description and eyebrow -->
             <div class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-full max-w-[360px] pointer-events-none pr-4">
               <div class="mb-4 flex items-center gap-2">
@@ -408,29 +409,29 @@ include 'templates/header.php';
           </div>
 
           <!-- Right Column: Expert slider card -->
-          <div class="lg:col-span-5 flex justify-center w-full">
+          <div class="lg:col-span-5 flex justify-center w-full" data-animate>
             <div class="relative w-[340px] h-[340px] md:w-[420px] md:h-[420px] bg-[#B7FCD7] overflow-hidden rounded-sm shadow-md flex items-center justify-center">
-              
+
               <!-- Logo top left -->
               <div class="absolute top-5 left-5 z-20 opacity-70">
                 <img src="public/images/logo.png" alt="K-Biz Logo" class="h-9 object-contain" />
               </div>
-              
+
               <!-- Translucent purple chevron background -->
               <div class="absolute inset-y-0 left-0 w-1/3 z-0 flex items-center justify-start opacity-[0.22] pl-3">
                 <svg width="100" height="200" viewBox="0 0 100 200" fill="none" stroke="#B800FF" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M20 20l60 80-60 80" />
                 </svg>
               </div>
-              
+
               <!-- Expert portrait image -->
               <img
                 id="expert-img"
-                src="public/images/team-huynh-thi-hang.png"
+                src="public/images/avatar-hang.png"
                 alt="Huỳnh Thị Hằng"
                 class="absolute inset-0 h-full w-full object-cover z-10"
               />
-              
+
               <!-- Slide controls overlay bottom right -->
               <div class="absolute bottom-5 right-5 z-20 flex gap-2">
                 <button
@@ -474,45 +475,54 @@ include 'templates/header.php';
       ></div>
 
       <div class="relative z-10 flex w-full flex-col items-center justify-center px-6 text-center md:px-10">
-        <h4 class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans">
+        <h4 class="mb-8 text-2xl font-semibold text-[#3D0055] md:text-[32px] max-w-[600px] leading-tight font-sans" data-animate>
           Get an estimate for your upcoming project
         </h4>
         <a
           href="contact"
           class="rounded-none bg-[#B9FCD8] px-8 py-2.5 text-sm font-medium text-[#3D0055] transition-colors hover:bg-white hover:text-[#3D0055]"
+          data-animate
         >
           Contact
         </a>
       </div>
     </section>
 
+    <!-- Footer -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
+
       // ==========================================
-      // 2. SLIDER 1: CASE STUDIES
+      // 1. SLIDER 1: CASE STUDIES
       // ==========================================
       const defaultSlides = [
         {
-          eyrow: "CASE STUDIES", /* wait, eyebrow is correct */
           eyebrow: "CASE STUDIES",
           title: "Perspective on Traditional Market Model – Part 1: The fish market in Busan",
-          description: "When tourists visit any destination, they often want to learn about the local culture, history, standard of living, and customs. Traditional markets are an...",
+          description: "When tourists visit any destination, they often want to learn about the local culture, history, standard of living, and customs. Traditional markets are an integral part of that experience...",
           image: "public/images/blog-busan.jpg",
-          href: "project-1",
+          href: "case-busan.html",
         },
         {
           eyebrow: "CASE STUDIES",
-          title: "Perspective on Traditional Market Model – Part 2: The hub market in Bazar",
-          description: "A comprehensive look at traditional markets in the modern economy, focusing on Bazar hub market's vital role in supplying fresh goods and supporting local micro-entrepreneurs...",
+          title: "Perspective on Traditional Market Model – Part 2: The market in Vietnam",
+          description: "Following Part 1's look at Busan's fish market, Part 2 turns to Vietnam's traditional markets — particularly those in Nha Trang and Khánh Hòa — and examines the gap between what they could be and what they currently are...",
           image: "public/images/blog-chodam.jpg",
-          href: "projects",
+          href: "case-vietnam.html",
         },
         {
           eyebrow: "CASE STUDIES",
-          title: "Traditional Markets vs Modern Supermarkets",
+          title: "Perspective on Traditional Market Model – Part 3: Shopping at market or supermarket?",
           description: "Analyzing consumer behavior transitions in fast-developing coastal urban cities. How traditional markets retain their competitive edge through cultural connection...",
           image: "public/images/blog-supermarket.jpg",
-          href: "projects",
+          href: "case-supermarket.html",
+        },
+        {
+          eyebrow: "CASE STUDIES",
+          title: "Thinh Vuong 2 Market – Revitalizing a Traditional Market in Khánh Hòa",
+          description: "K-Biz Consulting partnered with Thinh Vuong Market Management to reimagine the market's future. The project focused on upgrading vendor infrastructure and modernizing operations while preserving the market's cultural identity...",
+          image: "public/images/blog-thinhvuong.jpg",
+          href: "case-thinh-vuong.html",
         },
       ];
 
@@ -528,9 +538,6 @@ include 'templates/header.php';
 
         // Render HTML content
         caseStudiesTextContainer.innerHTML = `
-          <span class="mb-6 block text-xs font-extrabold uppercase tracking-[0.25em] text-[#B800FF]">
-            ${slide.eyebrow}
-          </span>
           <h3 class="mb-5 text-3xl font-bold leading-tight tracking-[-1.5px] text-[#3D0055] md:text-[38px]">
             ${slide.title}
           </h3>
@@ -553,32 +560,12 @@ include 'templates/header.php';
           />
         `;
 
+        // Ensure container is visible (in case data-animate hasn't fired yet)
+        caseStudiesTextContainer.classList.add("in");
         // Trigger reflow & re-animate
         caseStudiesTextContainer.classList.remove("animate-fade-in");
         void caseStudiesTextContainer.offsetWidth; // force reflow
         caseStudiesTextContainer.classList.add("animate-fade-in");
-      }
-
-      // Load published posts from localStorage if present
-      const saved = localStorage.getItem("kbiz_posts");
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved);
-          const publishedPosts = parsed.filter(function(p) { return p.status === "published"; });
-          if (publishedPosts.length > 0) {
-            slidesList = publishedPosts.map(function(p) {
-              return {
-                eyebrow: p.tags ? p.tags.split(",")[0].toUpperCase().trim() : "CASE STUDIES",
-                title: p.title,
-                description: p.excerpt || (p.content ? p.content.slice(0, 150) + "..." : "No description available."),
-                image: p.coverImage || "public/images/blog-busan.jpg",
-                href: "projects",
-              };
-            });
-          }
-        } catch (e) {
-          console.error("Failed to parse LocalStorage posts:", e);
-        }
       }
 
       updateCaseStudies();
@@ -595,7 +582,7 @@ include 'templates/header.php';
 
 
       // ==========================================
-      // 3. SLIDER 2: PROJECT BANNER
+      // 2. SLIDER 2: PROJECT BANNER
       // ==========================================
       const projectSlides = [
         {
@@ -604,14 +591,49 @@ include 'templates/header.php';
           subtitle: "Investment Consulting - 2021",
         },
         {
-          image: "public/images/australis-8956_edited.jpg",
+          image: "public/images/project-australis.jpg",
           title: "AUSTRALIS AQUACULTURE VIETNAM",
-          subtitle: "Investment & Licensing",
+          subtitle: "Investment Consulting - 2019",
         },
         {
           image: "public/images/ProjectImageSG.png",
           title: "SAIGON NHA TRANG GENERAL HOSPITAL",
           subtitle: "Investment Consulting - 2019",
+        },
+        {
+          image: "public/images/project-hospital.png",
+          title: "KHANH HOA GENERAL HOSPITAL",
+          subtitle: "Investment Consulting - 2020",
+        },
+        {
+          image: "public/images/project-olympia.jpg",
+          title: "OLYMPIA GENERAL CLINIC",
+          subtitle: "Investment Consulting - 2017–2020",
+        },
+        {
+          image: "public/images/project-anamandara.jpg",
+          title: "ANA MANDARA RESORT NHA TRANG",
+          subtitle: "Investment Registration - 2015",
+        },
+        {
+          image: "public/images/project-mia.jpg",
+          title: "MIA RESORT NHA TRANG",
+          subtitle: "Supporting Development - 2003",
+        },
+        {
+          image: "public/images/project-karmsund.jpg",
+          title: "KARMSUND MARITIME VIETNAM",
+          subtitle: "Investment Consulting - 2012",
+        },
+        {
+          image: "public/images/project-vinhphat.jpg",
+          title: "VINH PHAT FLOUR CO., LTD",
+          subtitle: "Investment Registration - 2013",
+        },
+        {
+          image: "public/images/project-ecotourism.jpg",
+          title: "ECOTOURISM PROJECT",
+          subtitle: "Investment Consulting - 2021",
         },
       ];
 
@@ -623,7 +645,7 @@ include 'templates/header.php';
 
       function updateProjSlide() {
         const slide = projectSlides[currentProjSlide];
-        
+
         projectSlideImg.src = slide.image;
         projectSlideImg.alt = slide.title;
         projectSlideTitle.textContent = slide.title;
@@ -649,7 +671,7 @@ include 'templates/header.php';
 
 
       // ==========================================
-      // 4. SLIDER 3: TESTIMONIALS
+      // 3. SLIDER 3: TESTIMONIALS
       // ==========================================
       const testimonials = [
         {
@@ -658,7 +680,7 @@ include 'templates/header.php';
           info: "(Properties Management, 2014 - 2015)",
         },
         {
-          quote: "“I've had the pleasure of working with the K-Biz team and appreciate their valuable insights on investment and law in Nha Trang.”",
+          quote: "“I’ve had the pleasure of working with the K-Biz team and appreciate their valuable insights on investment and law in Nha Trang.”",
           name: "Mr. Peter Allen – Managing Partner",
           info: "NT Ventures",
         },
@@ -703,39 +725,15 @@ include 'templates/header.php';
 
 
       // ==========================================
-      // 5. SLIDER 4: TEAM / EXPERTS
+      // 4. SLIDER 4: TEAM / EXPERTS
       // ==========================================
       const teamMembers = [
-        {
-          name: "Huỳnh Thị Hằng",
-          role: "Head of Investment Advisory Department – Co-founder",
-          image: "public/images/team-huynh-thi-hang.png",
-        },
-        {
-          name: "Nguyễn Trần Khánh Hiệp",
-          role: "Project Development Department",
-          image: "public/images/team-khanh-hiep.png",
-        },
-        {
-          name: "Từ Ngọc Thùy Nhi",
-          role: "Accounting & Tax Department",
-          image: "public/images/team-thuy-nhi.png",
-        },
-        {
-          name: "Hà Thái Sơn",
-          role: "Legal Department",
-          image: "public/images/team-thai-son.png",
-        },
-        {
-          name: "Nguyễn Thị Hải Anh",
-          role: "Startup Management Support Department",
-          image: "public/images/team-hai-anh.png",
-        },
-        {
-          name: "Bùi Kim Khánh",
-          role: "Legal Department",
-          image: "public/images/team-kim-khanh.png",
-        },
+        { name: "Huỳnh Thị Hằng",        image: "public/images/avatar-hang.png"  },
+        { name: "Nguyễn Trần Khánh Hiệp", image: "public/images/avatar-hiep.png"  },
+        { name: "Từ Ngọc Thùy Nhi",       image: "public/images/avatar-nhi.png"   },
+        { name: "Hà Thái Sơn",            image: "public/images/avatar-son.png"   },
+        { name: "Nguyễn Thị Hải Anh",     image: "public/images/avatar-anh.png"   },
+        { name: "Bùi Kim Khánh",          image: "public/images/avatar-khanh.png" },
       ];
 
       let currentExpert = 0;
@@ -762,8 +760,7 @@ include 'templates/header.php';
         currentExpert = (currentExpert + 1) % teamMembers.length;
         updateExpert();
       });
+
     });
-</script>
+  </script>
 <?php include 'templates/footer.php'; ?>
-
-
